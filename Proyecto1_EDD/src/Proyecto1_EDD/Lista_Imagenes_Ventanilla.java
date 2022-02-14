@@ -8,12 +8,12 @@ package Proyecto1_EDD;
  *
  * @author braya
  */
-public class Lista_Ventanillas {
-    Nodo_Ventanillas cabeza;
+public class Lista_Imagenes_Ventanilla {
+    Nodo_Imagenes cabeza;
 
     int size;
 
-    public Lista_Ventanillas() {
+    public Lista_Imagenes_Ventanilla() {
         cabeza = null;
         
         size = 0;
@@ -23,26 +23,26 @@ public class Lista_Ventanillas {
         return (cabeza == null) ? true : false;
     }
 
-    public void AgregarNodoInicio(Object algo) {
+    public void AgregarNodoInicio(Object algo,Object id) {
         // Cuando la lista esta vacia
         if (cabeza == null) {
-            cabeza = new Nodo_Ventanillas(algo);
+            cabeza = new Nodo_Imagenes(algo,id);
             // cuando la lista esta llena
         } else {
-            Nodo_Ventanillas temp = cabeza;
-            Nodo_Ventanillas nuevo = new Nodo_Ventanillas(algo);
+            Nodo_Imagenes temp = cabeza;
+            Nodo_Imagenes nuevo = new Nodo_Imagenes(algo,id);
             nuevo.linkSiguiente(temp);
             cabeza = nuevo;
         }
         size++;
 
     }
-    public void AgragarNodoFinal(Object algo){
+    public void AgragarNodoFinal(Object algo,Object id){
     if (cabeza == null){
-    cabeza = new Nodo_Ventanillas(algo);
+    cabeza = new Nodo_Imagenes(algo,id);
     }else{
-        Nodo_Ventanillas actual = cabeza;
-        Nodo_Ventanillas nuevo = new Nodo_Ventanillas(algo);
+        Nodo_Imagenes actual = cabeza;
+        Nodo_Imagenes nuevo = new Nodo_Imagenes(algo,id);
         while (actual.getSiguiente() != null){
             actual = actual.getSiguiente();
         }
@@ -52,58 +52,8 @@ public class Lista_Ventanillas {
     size++;
     }
     
-    public void IngresoCliente(Object cliente){
-    Nodo_Ventanillas temp = cabeza;
-    while(temp.getArriba()!= null){
-        temp = temp.getSiguiente();
-    }
-    System.out.println("La"+temp.getElemento());
-    Nodo_Recepcion cli = new Nodo_Recepcion(cliente);
-    temp.linkArriba(cli);
-    System.out.println("ingreso un cliente:"+((Cliente)cli.getElemento()).getNombre());
-    
-    }
-    
-    public void ProcesarImagenes(Object ventanilla){
-        Nodo_Ventanillas nv = cabeza;
-      
-        
-        while(nv.getElemento() != ventanilla && nv.getSiguiente() != null){
-            
-        nv = nv.getSiguiente();
-        }
-        Object obtener = ((Nodo_Recepcion)nv.getArriba()).getElemento();
-        System.out.println("Se encontro la ventanilla: ");
-         System.out.println("El cliente solicito N : "+((Cliente)obtener).Nombre);
-        System.out.println("El cliente solicito I BW: "+((Cliente)obtener).getImg_BW());
-        System.out.println("El cliente solicito I C: "+((Cliente)obtener).getImg_C());
-        
-        
-    
-    
-    }
-    
-    public void EntrgarImagenes(){
-    
-    
-    
-    
-    }
-    
-    public void SalidaCliente(){
-    Nodo_Ventanillas temp = cabeza;
-    
-    Nodo_Recepcion cl = temp.getArriba();
-    System.out.println("Esta ventanilla aatiende al cliente:"+cl.getElemento());
- 
-    
-    }
-    
-    
-    
-    
     public void imprimir(){
-    Nodo_Ventanillas temp = cabeza;
+    Nodo_Imagenes temp = cabeza;
     String data = "";
     while (temp.getSiguiente() != null){
     data =data+"-->"+ temp.getElemento().toString(); 
@@ -119,7 +69,7 @@ public class Lista_Ventanillas {
 
     public Object ObtenerNodo(int index) {
         int contador = 0;
-        Nodo_Ventanillas temporal = cabeza;
+        Nodo_Imagenes temporal = cabeza;
         while (contador != index) {
             temporal = temporal.getSiguiente();
             contador++;
@@ -127,8 +77,8 @@ public class Lista_Ventanillas {
         return temporal.getElemento();
     }
     public Object ObtenerPrimero(){
-    Nodo_Ventanillas temporal = cabeza;
-    Nodo_Ventanillas temporal2 = cabeza;
+    Nodo_Imagenes temporal = cabeza;
+    Nodo_Imagenes temporal2 = cabeza;
     int contador = 0;
     int contador2 = 0; 
     while(temporal.getSiguiente() != null){
@@ -142,16 +92,13 @@ public class Lista_Ventanillas {
     temporal2.linkSiguiente(null);
     return temporal.getElemento();
     }
-    
-    
-    
 
     public void EliminarNodo(int index) {
         if (index == 0) {
             cabeza = cabeza.getSiguiente();
         } else if (index == size - 1) {
             int cont = 0;
-            Nodo_Ventanillas actual = cabeza;
+            Nodo_Imagenes actual = cabeza;
             while (cont != index - 2) {
                 actual = actual.getSiguiente();
                 cont++;
@@ -159,7 +106,7 @@ public class Lista_Ventanillas {
             actual.linkSiguiente(null);
         } else {
             int cont = 0;
-            Nodo_Ventanillas temporal = cabeza;
+            Nodo_Imagenes temporal = cabeza;
             while (cont != index) {
                 temporal = temporal.getSiguiente();
                 cont++;
@@ -172,7 +119,7 @@ public class Lista_Ventanillas {
 
     public void Cortar(int index) {
         int contador = 0;
-        Nodo_Ventanillas temp = cabeza;
+        Nodo_Imagenes temp = cabeza;
         while (contador != index) {
             temp = temp.getSiguiente();
             contador++;
