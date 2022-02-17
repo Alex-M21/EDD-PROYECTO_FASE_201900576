@@ -8,12 +8,12 @@ package Proyecto1_EDD;
  *
  * @author braya
  */
-public class Lista_Imagenes_Ventanilla {
+public class Lista_Imagenes {
     Nodo_Imagenes cabeza;
 
     int size;
 
-    public Lista_Imagenes_Ventanilla() {
+    public Lista_Imagenes() {
         cabeza = null;
         
         size = 0;
@@ -37,31 +37,25 @@ public class Lista_Imagenes_Ventanilla {
         size++;
 
     }
-    public void AgragarNodoFinal(Object algo){
-    if (cabeza == null){
-    cabeza = new Nodo_Imagenes(algo);
-    }else{
-        Nodo_Imagenes actual = cabeza;
-        Nodo_Imagenes nuevo = new Nodo_Imagenes(algo);
-        while (actual.getSiguiente() != null){
-            actual = actual.getSiguiente();
-        }
-        actual.linkSiguiente(nuevo);
-        nuevo.linkSiguiente(null);
-    }
-    size++;
-    }
     
     public void imprimir(){
     Nodo_Imagenes temp = cabeza;
+    
+    if(cabeza != null){
     String data = "";
     while (temp.getSiguiente() != null){
-    data =data+"-->"+ temp.getElemento().toString(); 
+    data =data+"-->"+((Cliente)temp.getElemento()).getNombre(); 
     temp = temp.getSiguiente();
     }
-    data =data+"-->"+temp.getElemento().toString();
+    data =data+"-->"+((Cliente)temp.getElemento()).getNombre();
     System.out.println(data);
+    }else{
+    System.out.println("La lista esta vacia");
+    
     }
+    
+    }
+    
 
     public int tamaño() {
         return size;
@@ -79,20 +73,33 @@ public class Lista_Imagenes_Ventanilla {
     public Object ObtenerPrimero(){
     Nodo_Imagenes temporal = cabeza;
     Nodo_Imagenes temporal2 = cabeza;
+    Object retorno;
+    if(temporal.getSiguiente() != null){
     int contador = 0;
     int contador2 = 0; 
     while(temporal.getSiguiente() != null){
     temporal = temporal.getSiguiente();
     contador++;
     }
-    temporal.getElemento();
+    retorno = temporal.getElemento();
     while(contador2 != contador-1){
     temporal2 = temporal2.getSiguiente();
+    contador2++;
     }
     temporal2.linkSiguiente(null);
-    return temporal.getElemento();
+    
+    
+    
+    }else{
+    retorno = cabeza.getElemento();
+    cabeza = null;
+    
+    
+    }
+   return retorno;
     }
 
+    
     public void EliminarNodo(int index) {
         if (index == 0) {
             cabeza = cabeza.getSiguiente();

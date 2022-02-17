@@ -23,26 +23,26 @@ public class Lista_Ventanillas {
         return (cabeza == null) ? true : false;
     }
 
-    public void AgregarNodoInicio(Object algo) {
+    public void AgregarNodoInicio(Object algo,int id) {
         // Cuando la lista esta vacia
         if (cabeza == null) {
-            cabeza = new Nodo_Ventanillas(algo);
+            cabeza = new Nodo_Ventanillas(algo,id);
             // cuando la lista esta llena
         } else {
             Nodo_Ventanillas temp = cabeza;
-            Nodo_Ventanillas nuevo = new Nodo_Ventanillas(algo);
+            Nodo_Ventanillas nuevo = new Nodo_Ventanillas(algo,id);
             nuevo.linkSiguiente(temp);
             cabeza = nuevo;
         }
         size++;
 
     }
-    public void AgragarNodoFinal(Object algo){
+    public void AgragarNodoFinal(Object algo,int id){
     if (cabeza == null){
-    cabeza = new Nodo_Ventanillas(algo);
+    cabeza = new Nodo_Ventanillas(algo,id);
     }else{
         Nodo_Ventanillas actual = cabeza;
-        Nodo_Ventanillas nuevo = new Nodo_Ventanillas(algo);
+        Nodo_Ventanillas nuevo = new Nodo_Ventanillas(algo,id);
         while (actual.getSiguiente() != null){
             actual = actual.getSiguiente();
         }
@@ -78,39 +78,167 @@ public class Lista_Ventanillas {
         System.out.println("El cliente solicito I BW: "+((Cliente)obtener).getImg_BW());
         System.out.println("El cliente solicito I C: "+((Cliente)obtener).getImg_C());
         
+        String imgBWconv = ((Cliente)obtener).getImg_BW();
+        String imgCconv = ((Cliente)obtener).getImg_C();
+        String Id = ((Cliente)obtener).getId();
+        int n_imgBWconv = Integer.parseInt(imgBWconv);
+        int n_imgCconv = Integer.parseInt(imgCconv);
+        
+        for(int b=0;b<n_imgBWconv;b++){
+        System.out.println("Imagen Blanco y negro ");
+        nv.lstImgVent.AgragarNodoFinal(new Imagen("Imagen Blanco y Negro",Id,1));
+        
+        }
+        for(int c=0;c<n_imgCconv;c++){
+        System.out.println("Imagen Color");
+        nv.lstImgVent.AgragarNodoFinal(new Imagen("Imagen Color",Id,0));
+        
+        }
+        
         
     
+    }
+    
+    public void VerImagenes(Object ventanilla){
+         Nodo_Ventanillas nv = cabeza;
+      
+        
+        while(nv.getElemento() != ventanilla && nv.getSiguiente() != null){
+            
+        nv = nv.getSiguiente();
+        }
+        nv.lstImgVent.imprimir();
+    
+    
+    
     
     }
     
-    public void EntrgarImagenes(){
+    public void tomarImagenClienteBW(int id){
     
+     Nodo_Ventanillas nv = cabeza;
+      
+        
+        while(nv.id != id && nv.getSiguiente() != null){
+            
+        nv = nv.getSiguiente();
+        }
+        String c21 = ((Cliente)nv.arriba.getElemento()).getImg_BW();
+        String Id = ((Cliente)nv.arriba.getElemento()).getId();
+        int c04 = Integer.parseInt(c21);
+        c04 =  c04-1;
+        String c101 = c04+"";
+        ((Cliente)nv.arriba.getElemento()).setImg_BW(c101);
+        nv.lstImgVent.AgragarNodoFinal(new Imagen("Imagen BW",Id,1));
+        System.out.println(((Cliente)nv.arriba.getElemento()).getImg_BW());
+       
+    }
+    public void tomarImagenCliente(int id){
     
-    
-    
+     Nodo_Ventanillas nv = cabeza;
+      
+        
+        while(nv.id != id && nv.getSiguiente() != null){
+            
+        nv = nv.getSiguiente();
+        }
+         System.out.println("Buscamos ventanilla "+ id);
+        System.out.println("Este es el elemento "+nv.getElemento());
+        String c99 = ((Cliente)nv.arriba.getElemento()).getImg_C();
+        String Id = ((Cliente)nv.arriba.getElemento()).getId();
+        int c100 = Integer.parseInt(c99);
+        String c21 = ((Cliente)nv.arriba.getElemento()).getImg_BW();
+       
+        int c04 = Integer.parseInt(c21);
+        
+        if (c100 > 0){
+        c100 =  c100-1;
+        String c101 = c100+"";
+        ((Cliente)nv.arriba.getElemento()).setImg_C(c101);
+        nv.lstImgVent.AgragarNodoFinal(new Imagen("Imagen Color",Id,0));
+        System.out.println("Imgenes color restantes:"+((Cliente)nv.arriba.getElemento()).getImg_C());
+        
+        }else if(c100 == 0 && c04 > 0 ){
+        
+        c04 =  c04-1;
+        String c101 = c04+"";
+        ((Cliente)nv.arriba.getElemento()).setImg_BW(c101);
+        nv.lstImgVent.AgragarNodoFinal(new Imagen("Imagen BW",Id,1));
+        System.out.println("Imagenes BW restantes: "+((Cliente)nv.arriba.getElemento()).getImg_BW());
+        
+        
+        }else {
+        
+        System.out.println("el cliente ya no tiene imagenes");
+        
+        }
+        
+       
     }
     
-    public void SalidaCliente(){
+    
+    public void SalidaCliente(int ventanilla,Lista_Espera lstEspera){
     Nodo_Ventanillas temp = cabeza;
+    boolean redflag = false;
+    System.out.println("Ventanilla buscada = "+ventanilla);
+    if(temp.id == ventanilla){
+     System.out.println("este es temp: "+ temp.getElemento());
+     System.out.println("Se eliminara el cliente"+temp.getElemento());
+     Object clienteSale = temp.arriba.getElemento();
+     
+     lstEspera.AgreagarCircularInicio(clienteSale);
+     
+     temp.linkArriba(null);
+     
+    }else{
+         while(temp.id != ventanilla || redflag == true ){
+       
+    temp = temp.getSiguiente();
+    if(temp.getSiguiente()== null){
+    redflag = true;
+    break;
+    }
+    }
+     System.out.println("Se encontro la: "+ temp.getElemento()  );
+     System.out.println("Se eliminara el cliente"+temp.getElemento());
+     Object clienteSale = temp.arriba.getElemento();
+     
+     lstEspera.AgreagarCircularInicio(clienteSale);
+     temp.linkArriba(null);
     
-    Nodo_Recepcion cl = temp.getArriba();
-    System.out.println("Esta ventanilla aatiende al cliente:"+cl.getElemento());
- 
+    }
+   
+    }
+    
+    public void EnviarImgCola(){
+    
     
     }
     
+    public void imprimirArriba(){
+    Nodo_Ventanillas temp = cabeza;
+    while(temp.getSiguiente()!=null){
+        
+        temp = temp.getSiguiente();
+    }
     
+    }
     
     
     public void imprimir(){
     Nodo_Ventanillas temp = cabeza;
     String data = "";
+    if(cabeza != null){
     while (temp.getSiguiente() != null){
-    data =data+"-->"+ temp.getElemento().toString(); 
+    data ="--->"+temp.getElemento().toString()+data; 
     temp = temp.getSiguiente();
     }
     data =data+"-->"+temp.getElemento().toString();
     System.out.println(data);
+    }else{
+    System.out.println("La lista Ventanillas esta vacia :( ");
+    
+    }
     }
 
     public int tamaño() {

@@ -38,6 +38,8 @@ public class Lista_Recepcion {
 
     }
     
+    
+    
     public void imprimir(){
     Nodo_Recepcion temp = cabeza;
     
@@ -50,7 +52,7 @@ public class Lista_Recepcion {
     data =data+"-->"+((Cliente)temp.getElemento()).getNombre();
     System.out.println(data);
     }else{
-    System.out.println("La lista esta vacia");
+    System.out.println("La lista Recepcion esta vacia");
     
     }
     

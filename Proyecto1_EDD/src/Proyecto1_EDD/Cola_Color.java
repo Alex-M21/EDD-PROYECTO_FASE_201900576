@@ -8,14 +8,11 @@ package Proyecto1_EDD;
  *
  * @author braya
  */
-public class Lista_Imagenes_Ventanilla {
-    Nodo_Imagenes cabeza;
-
+public class Cola_Color {
+    Nodo_impresion cabeza;
     int size;
-
-    public Lista_Imagenes_Ventanilla() {
+     public Cola_Color() {
         cabeza = null;
-        
         size = 0;
     }
 
@@ -26,42 +23,36 @@ public class Lista_Imagenes_Ventanilla {
     public void AgregarNodoInicio(Object algo) {
         // Cuando la lista esta vacia
         if (cabeza == null) {
-            cabeza = new Nodo_Imagenes(algo);
+            cabeza = new Nodo_impresion(algo);
             // cuando la lista esta llena
         } else {
-            Nodo_Imagenes temp = cabeza;
-            Nodo_Imagenes nuevo = new Nodo_Imagenes(algo);
+            Nodo_impresion temp = cabeza;
+            Nodo_impresion nuevo = new Nodo_impresion(algo);
             nuevo.linkSiguiente(temp);
             cabeza = nuevo;
         }
         size++;
 
     }
-    public void AgragarNodoFinal(Object algo){
-    if (cabeza == null){
-    cabeza = new Nodo_Imagenes(algo);
-    }else{
-        Nodo_Imagenes actual = cabeza;
-        Nodo_Imagenes nuevo = new Nodo_Imagenes(algo);
-        while (actual.getSiguiente() != null){
-            actual = actual.getSiguiente();
-        }
-        actual.linkSiguiente(nuevo);
-        nuevo.linkSiguiente(null);
-    }
-    size++;
-    }
     
     public void imprimir(){
-    Nodo_Imagenes temp = cabeza;
+    Nodo_impresion temp = cabeza;
+    
+    if(cabeza != null){
     String data = "";
     while (temp.getSiguiente() != null){
-    data =data+"-->"+ temp.getElemento().toString(); 
+    data =data+"-->"+((Imagen)temp.getImagen()).getTipo(); 
     temp = temp.getSiguiente();
     }
-    data =data+"-->"+temp.getElemento().toString();
+    data =data+"-->"+((Cliente)temp.getImagen()).getNombre();
     System.out.println(data);
+    }else{
+    System.out.println("La lista esta vacia");
+    
     }
+    
+    }
+    
 
     public int tamaño() {
         return size;
@@ -69,36 +60,49 @@ public class Lista_Imagenes_Ventanilla {
 
     public Object ObtenerNodo(int index) {
         int contador = 0;
-        Nodo_Imagenes temporal = cabeza;
+        Nodo_impresion temporal = cabeza;
         while (contador != index) {
             temporal = temporal.getSiguiente();
             contador++;
         }
-        return temporal.getElemento();
+        return temporal.getImagen();
     }
     public Object ObtenerPrimero(){
-    Nodo_Imagenes temporal = cabeza;
-    Nodo_Imagenes temporal2 = cabeza;
+    Nodo_impresion temporal = cabeza;
+    Nodo_impresion temporal2 = cabeza;
+    Object retorno;
+    if(temporal.getSiguiente() != null){
     int contador = 0;
     int contador2 = 0; 
     while(temporal.getSiguiente() != null){
     temporal = temporal.getSiguiente();
     contador++;
     }
-    temporal.getElemento();
+    retorno = temporal.getImagen();
     while(contador2 != contador-1){
     temporal2 = temporal2.getSiguiente();
+    contador2++;
     }
     temporal2.linkSiguiente(null);
-    return temporal.getElemento();
+    
+    
+    
+    }else{
+    retorno = cabeza.getImagen();
+    cabeza = null;
+    
+    
+    }
+   return retorno;
     }
 
+    
     public void EliminarNodo(int index) {
         if (index == 0) {
             cabeza = cabeza.getSiguiente();
         } else if (index == size - 1) {
             int cont = 0;
-            Nodo_Imagenes actual = cabeza;
+            Nodo_impresion actual = cabeza;
             while (cont != index - 2) {
                 actual = actual.getSiguiente();
                 cont++;
@@ -106,7 +110,7 @@ public class Lista_Imagenes_Ventanilla {
             actual.linkSiguiente(null);
         } else {
             int cont = 0;
-            Nodo_Imagenes temporal = cabeza;
+            Nodo_impresion temporal = cabeza;
             while (cont != index) {
                 temporal = temporal.getSiguiente();
                 cont++;
@@ -119,7 +123,7 @@ public class Lista_Imagenes_Ventanilla {
 
     public void Cortar(int index) {
         int contador = 0;
-        Nodo_Imagenes temp = cabeza;
+        Nodo_impresion temp = cabeza;
         while (contador != index) {
             temp = temp.getSiguiente();
             contador++;

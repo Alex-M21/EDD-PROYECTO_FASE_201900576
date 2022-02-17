@@ -10,15 +10,17 @@ package Proyecto1_EDD;
  */
 public class Nodo_Ventanillas{
        Object elemento;
+       int id;
        Nodo_Recepcion arriba;
        Nodo_Ventanillas siguiente;
-       Nodo_Imagenes abajo;
+       Lista_Imagenes_Ventanilla lstImgVent = new Lista_Imagenes_Ventanilla();
 
-    public Nodo_Ventanillas(Object elemento) {
+    public Nodo_Ventanillas(Object elemento,int id) {
         this.elemento = elemento;
         this.arriba = null;
         this.siguiente = null;
-        this.abajo = null;
+        this.lstImgVent = lstImgVent;
+        this.id = id;
     }
 
     public Object getElemento() {
@@ -40,19 +42,5 @@ public class Nodo_Ventanillas{
     public void linkArriba(Nodo_Recepcion arriba) {
         this.arriba = arriba;
     }
-
-    public Nodo_Imagenes getAbajo() {
-        return abajo;
-    }
-
-    public void linkAbajo(Nodo_Imagenes abajo) {
-        this.abajo = abajo;
-    }
-
-    
-    
-    
-
-   
-    
+ 
 }

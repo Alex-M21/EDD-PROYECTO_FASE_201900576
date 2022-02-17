@@ -13,16 +13,13 @@ public class Nodo_Espera {
     
     Nodo_Espera siguiente;
     Nodo_Espera anterior;
-    Nodo_Imagenes abajo;
-    
-
-   
+    Lista_Imagenes_Ventanilla lstImageEspera = new Lista_Imagenes_Ventanilla();
 
     public Nodo_Espera(Object element, Nodo_Espera siguiente,Nodo_Espera anterior) {
         this.element = element;
         this.anterior = null;
         this.siguiente = null;
-        this.abajo = null;
+        this.lstImageEspera = lstImageEspera;
     }
 
     public Object getElement() {
@@ -36,10 +33,7 @@ public class Nodo_Espera {
     public Nodo_Espera getAnterior() {
         return anterior;
     }
-    public Nodo_Imagenes getAbajo(){
-    return abajo;
-    
-    }
+   
 
     public void linkSiguiente(Nodo_Espera siguiente) {
         this.siguiente = siguiente;
@@ -48,9 +42,7 @@ public class Nodo_Espera {
     public void linkAnterior(Nodo_Espera anterior) {
         this.anterior = anterior;
     }
-     public void linkAbajo(Nodo_Imagenes abajo) {
-        this.abajo = abajo;
-    }
+   
     
     
 }

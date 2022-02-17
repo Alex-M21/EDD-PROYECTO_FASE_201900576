@@ -10,12 +10,12 @@ package Proyecto1_EDD;
  */
 public class Nodo_Imagenes {
      Object elemento;
-     Object id;
+  
      Nodo_Imagenes siguiente;
 
-    public Nodo_Imagenes(Object elemento,Object id) {
+    public Nodo_Imagenes(Object elemento) {
         this.elemento = elemento;
-        this.id = id;
+    
         this.siguiente = null;
     }
     public Object getElemento() {

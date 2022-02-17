@@ -36,5 +36,13 @@ public class Cliente {
     public String getImg_BW() {
         return Img_BW;
     }
+
+    public void setImg_C(String Img_C) {
+        this.Img_C = Img_C;
+    }
+
+    public void setImg_BW(String Img_BW) {
+        this.Img_BW = Img_BW;
+    }
     
 }

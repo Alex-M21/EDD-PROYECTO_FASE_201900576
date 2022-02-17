@@ -92,19 +92,19 @@ public class Lista_Espera {
      }
      if (redflag != true){
      System.out.println("Encontrado: "+temp.getElement());
-     Nodo_Imagenes img = new Nodo_Imagenes(imagen,temp.getElement());
-     if (temp.getAbajo()== null){
-     temp.linkAbajo(img);
-     System.out.println("Imagen isertada correctamente");
+     //Nodo_Imagenes img = new Nodo_Imagenes(imagen,temp.getElement());
+     //if (temp.getAbajo()== null){
+     //temp.linkAbajo(img);
+     //System.out.println("Imagen isertada correctamente");
      
-     }else{
-         while(temp.getAbajo()!= null){
+     //}else{
+     //    while(temp.getAbajo()!= null){
          
-          System.out.println("Estamos en desarrollo");
-         }
+      //    System.out.println("Estamos en desarrollo");
+     //    }
      
      
-     }
+     
      }else{
      System.out.println("No encontrado :( ");
      }

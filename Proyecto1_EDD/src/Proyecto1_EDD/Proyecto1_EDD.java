@@ -67,9 +67,15 @@ public class Proyecto1_EDD {
         String N = "";
         String A = "";
         String NCompleto = "";
-       
+        String id = "";
+        int idnumero = 1999;
+        
+        String ing_Imagen_Color = "";
+        String ing_Imagen_BW = "";
+        
         
         for(int i=0;i<=Cant_Clientes;i++){
+            idnumero = idnumero + i;
             int indexN = random.nextInt(9);
             N = Nombres[indexN];
             int indexA = random.nextInt(9);
@@ -77,21 +83,23 @@ public class Proyecto1_EDD {
             int img_Color = 0;
             int img_BW = 0;
             
-            NCompleto = N+" "+A;
+            NCompleto = N + " " + A;
             System.out.println(NCompleto);
-            for (int j=0;j<=Cant_Imagenes;j++){
-             int img = random.nextInt(2);
-             if (img == 0){
-                 System.out.println(" img Color");
-                 img_Color++;
-             }else if (img == 1){
-                 System.out.println("img BW");
-                 img_BW++;
-             }
-             
-        
-        }
-            
+            for (int j = 0; j <= Cant_Imagenes; j++) {
+                int img = random.nextInt(2);
+                if (img == 0) {
+                    System.out.println("img_Color");
+                    img_Color++;
+                } else if (img == 1) {
+                    System.out.println("img BW");
+                    img_BW++;
+                }
+
+            }
+            ing_Imagen_Color = img_Color+"";
+            ing_Imagen_BW = img_BW+"";
+            id = idnumero+"";
+            LR.AgregarNodoInicio(new Cliente(id,NCompleto,ing_Imagen_Color,ing_Imagen_BW));
         }
         
     
@@ -160,6 +168,66 @@ public class Proyecto1_EDD {
     
    
     }
+    
+    public static void DesarrollarPasos(int paso,Lista_Recepcion lstR,Lista_Ventanillas lstV,Lista_Espera lstE,Cola_BW colaBW,Cola_Color colaC){
+    switch(paso){
+        case 1:
+            System.out.println("--------------------PASO 1---------------------");
+            System.out.println("--------------LA LISTA RECEPCION---------------");
+            lstR.imprimir();
+            System.out.println("--------------LA LISTA VENTANILLA--------------");
+            lstV.imprimir();
+            System.out.println("--------------LA LISTA DE ESPERA-------------- ");
+            lstE.iterarAdelante();
+            System.out.println("--------------LA COLA IMRESION BW--------------");
+            colaBW.imprimir();
+            System.out.println("------------LA COLA IMPRESION COLOR------------");
+            colaC.imprimir();
+            // Cliente 1 ingresa a la ventanilla 1
+            Object primercliente = lstR.ObtenerPrimero();
+            lstV.IngresoCliente(primercliente);
+           
+            
+            
+            // En la cola de recpcion pueden ingresar clientes de forma aleatoria
+            // mostrar vacio de las estructuras que no se usan
+            
+           
+            break;
+        case 2:
+            System.out.println("--------------------PASO 2---------------------");
+            // el cliente 2 ingresa a ventanilla 2
+            Object segundocliente = lstR.ObtenerPrimero();
+            lstV.IngresoCliente(segundocliente);
+            //ventanilla 1 recibe imagen 
+            lstV.tomarImagenCliente(1);
+            break;
+        case 3:
+            System.out.println("--------------------PASO 3---------------------");
+            lstV.tomarImagenCliente(1);
+            lstV.tomarImagenCliente(2);
+            break;
+        case 4:
+            System.out.println("--------------------PASO 4---------------------");
+            // El cliente 1 es atendido e ingresa a la lista de espera
+            lstV.SalidaCliente(1,lstE);
+            // La ventanilla 1 envia las Imagenes a las colas
+            
+            //El cliente 3 ingresa a la ventanilla 1 
+            //Ventanilla 2 recibe una imagen 
+            break;
+        case 5:
+            break;
+        case 6:
+            break;
+        case 7:
+            break;
+    
+    
+    }
+    
+    
+    }
   
 
     public static void main(String[] args) {
@@ -167,6 +235,9 @@ public class Proyecto1_EDD {
         Scanner entrada = new Scanner(System.in);
         Lista_Ventanillas lstVent = new Lista_Ventanillas();
         Lista_Recepcion lstRecepcion = new Lista_Recepcion();
+        Lista_Espera lstEspera = new Lista_Espera();
+        Cola_BW colaBW = new Cola_BW();
+        Cola_Color colaC = new Cola_Color();
         
         boolean salir = false;
         while (salir != true) {
@@ -208,7 +279,12 @@ public class Proyecto1_EDD {
                                    
                                     LeerJson(ruta,lstRecepcion);
                                     
+                                    IngresarRandoms(lstRecepcion);
+                                    
                                     lstRecepcion.imprimir();
+                                    
+                                    
+                                    
                                     Vala = true;
                                         break;
                                     case 2:
@@ -219,7 +295,7 @@ public class Proyecto1_EDD {
                                          if (Val_Numero(ndato)==true){
                                              int num = Integer.parseInt(ndato);
                                              for(int i = 0; i<num;i++){
-                                             lstVent.AgragarNodoFinal("Ventanilla "+(i+1));
+                                             lstVent.AgragarNodoFinal("Ventanilla "+(i+1),(i+1));
                                              }
                                          
                                          }
@@ -245,7 +321,7 @@ public class Proyecto1_EDD {
                     case 2:
                         System.out.println("Selecciono 2 esta en la funcion Ejecutar Pasos");
                         //IngresarRandoms(lstRecepcion);
-                        System.out.println(lstRecepcion.ObtenerNodo(1));
+                        /*System.out.println(lstRecepcion.ObtenerNodo(1));
                         Object primercliente = lstRecepcion.ObtenerPrimero();
                         Object segundocliente = lstRecepcion.ObtenerPrimero();
                         lstVent.IngresoCliente(primercliente);
@@ -253,13 +329,32 @@ public class Proyecto1_EDD {
                         lstVent.SalidaCliente();
                         lstVent.ProcesarImagenes("Ventanilla 2");
                         
-                       
+                       */
+                        System.out.println("Ingrese el paso que desea ejecutar: ");
+                        String recibirpaso = entrada.nextLine();
+                        int paso = Integer.parseInt(recibirpaso);
+                        DesarrollarPasos(paso,lstRecepcion,lstVent,lstEspera,colaBW,colaC);
+                        
+                        
+                        
+                        
                         break;
                     case 3:
                         System.out.println("Selecciono 3 esta en la funcion Estado de memoria de las estructuras");
                         //System.out.println(lstRecepcion.ObtenerPrimero());
                         //lstRecepcion.EliminarInicio();
                         //lstRecepcion.imprimir();
+                        Lista_Ventanillas lstVenta = new Lista_Ventanillas();
+                        Cliente cl99 = new Cliente("00","Brayan Mejia","3","3");
+                        /*lstVenta.AgragarNodoFinal("vetanilla 99");
+                        lstVenta.imprimir();
+                        lstVenta.IngresoCliente(cl99);
+                        lstVenta.ProcesarImagenes("ventanilla 99");
+                        lstVenta.tomarImagenCliente("ventanilla 99");
+                        lstVenta.tomarImagenCliente("ventanilla 99");
+                        lstVenta.tomarImagenCliente("ventanilla 99");
+                        lstVenta.tomarImagenCliente("ventanilla 99");
+                        */
                         
                         
                         
