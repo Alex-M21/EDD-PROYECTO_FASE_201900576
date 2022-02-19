@@ -13,7 +13,7 @@ public class Imagen {
     String tipo;
     int impresora;
 
-    public Imagen(String id, String tipo,int impresora) {
+    public Imagen(String tipo, String id,int impresora) {
         this.id = id;
         this.tipo = tipo;
         this.impresora = impresora;

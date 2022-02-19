@@ -1,0 +1,13 @@
+digraph G {
+Ventanilla1[label="Ventanilla 1"];
+Ventanilla1->null
+
+Ventanilla1->NuLL 
+Ventanilla2[label="Ventanilla 2"];
+Ventanilla2->Cliente2000
+
+Ventanilla2->Imagenvent21
+Imagenvent21[label="Imagen Color20001"];
+Imagenvent21->NuLL1 
+ Ventanilla1->Ventanilla2;
+Ventanilla2->NULL;}

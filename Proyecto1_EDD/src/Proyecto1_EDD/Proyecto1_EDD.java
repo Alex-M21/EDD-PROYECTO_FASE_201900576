@@ -173,25 +173,26 @@ public class Proyecto1_EDD {
     switch(paso){
         case 1:
             System.out.println("--------------------PASO 1---------------------");
-            System.out.println("--------------LA LISTA RECEPCION---------------");
-            lstR.imprimir();
-            System.out.println("--------------LA LISTA VENTANILLA--------------");
-            lstV.imprimir();
-            System.out.println("--------------LA LISTA DE ESPERA-------------- ");
-            lstE.iterarAdelante();
-            System.out.println("--------------LA COLA IMRESION BW--------------");
-            colaBW.imprimir();
-            System.out.println("------------LA COLA IMPRESION COLOR------------");
-            colaC.imprimir();
+            
             // Cliente 1 ingresa a la ventanilla 1
             Object primercliente = lstR.ObtenerPrimero();
             lstV.IngresoCliente(primercliente);
+            //lstV.AgragarNodoFinal();
            
             
             
             // En la cola de recpcion pueden ingresar clientes de forma aleatoria
             // mostrar vacio de las estructuras que no se usan
-            
+            System.out.println("--------------LA LISTA RECEPCION---------------");
+            lstR.imprimir();
+            System.out.println("--------------LA LISTA VENTANILLA--------------");
+            lstV.imprimir();
+            System.out.println("--------------LA LISTA DE ESPERA-------------- ");
+            lstE.imprimir();
+            System.out.println("--------------LA COLA IMRESION BW--------------");
+            colaBW.imprimir();
+            System.out.println("------------LA COLA IMPRESION COLOR------------");
+            colaC.imprimir();
            
             break;
         case 2:
@@ -210,19 +211,48 @@ public class Proyecto1_EDD {
         case 4:
             System.out.println("--------------------PASO 4---------------------");
             // El cliente 1 es atendido e ingresa a la lista de espera
-            lstV.SalidaCliente(1,lstE);
+            lstV.SalidaCliente(1,lstE,colaBW,colaC);
             // La ventanilla 1 envia las Imagenes a las colas
             
             //El cliente 3 ingresa a la ventanilla 1 
             //Ventanilla 2 recibe una imagen 
             break;
         case 5:
+            // la ventanilla 1 recibe una imagen del cliente 3 
+            // La ventanilla 2 recibe una imagen del cliente 2 
+            // Se completa la impresion de una imagen blanco y negro y se entrega al cliente
+            
+            
             break;
         case 6:
+            //El cliente 2 es atendido y regresa a la linea de espera
+            //La ventailla 2 envia imagenes del cliente 2 a las colas de impresion 
+            //La ventanilla 1 recie una imagen del cliente 3
+            //Se completa la impreion de una a color y se entrega al cliente
+          
             break;
         case 7:
+            // el cliente 3 es atendido e ingreas a la lista de espera
+            // La ventanilla 2 envia las iamgenes del cliente 3 a sus colas 
+            // el cliente 1 ya posee todas sus imagenes
             break;
-    
+        case 8:
+            String DataR = lstR.GraficarNodos();
+            lstR.CrearTxt(DataR,"Lista Recepcion");
+            lstR.LLamarGraphviz("Lista Recepcion");
+            String DataV = lstV.GraficarNodos();
+            lstV.CrearTxt(DataV);
+            lstV.LLamarGraphviz();
+            String DataE = lstE.GraficarNodos();
+            lstE.CrearTxt(DataE);
+            lstE.LLamarGraphviz();
+            String DataCb = colaBW.GraficarNodosImg();
+            colaBW.CrearTxt(DataE);
+            colaBW.LLamarGraphviz();
+            
+            
+            
+            break;
     
     }
     

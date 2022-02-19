@@ -55,12 +55,18 @@ public class Lista_Imagenes_Ventanilla {
     public void imprimir(){
     Nodo_Imagenes temp = cabeza;
     String data = "";
-    while (temp.getSiguiente() != null){
+    if (temp == null){
+    System.out.println("La lista imagenes esta vacia");
+    }else{
+        while (temp.getSiguiente() != null){
     data =data+"-->"+ temp.getElemento().toString(); 
     temp = temp.getSiguiente();
     }
     data =data+"-->"+temp.getElemento().toString();
     System.out.println(data);
+    }
+    
+    
     }
 
     public int tamaño() {
@@ -132,4 +138,77 @@ public class Lista_Imagenes_Ventanilla {
         cabeza = cabeza.getSiguiente().getSiguiente();
         size--;
     }
-}
+    public void ExportarImpresoras(Cola_BW colaBW, Cola_Color colaC){
+    Nodo_Imagenes actual =cabeza;
+    while(actual.getSiguiente() != null){
+        
+        Object imagen = ((Imagen)actual.getElemento()).tipo;
+        int numimpresora = ((Imagen)actual.getElemento()).impresora;
+        if(numimpresora == 1){
+        // Impresora Blaco y negro
+        colaBW.AgregarNodoInicio(imagen);
+        }else if(numimpresora == 0){
+        // Impresora Color
+        colaC.AgregarNodoInicio(imagen);
+        }  
+        actual = actual.getSiguiente();
+        System.out.println("Esta cola color");
+        //colaC.imprimir();
+        
+        System.out.println("Esta cola BW");
+        colaBW.imprimir();
+        
+    }
+    
+    
+    }
+    public void eliminarTodo(){
+    cabeza = null;
+    }
+    
+    
+    public String GraficarNodos(String vent,int cont){
+    Nodo_Imagenes actual = cabeza;
+    Nodo_Imagenes actual2 = cabeza;
+    Nodo_Imagenes head = cabeza;
+    String Data = "\n";
+    int contador = 1;
+    if(actual == null){
+     Data = Data+"Ventanilla"+cont+"->"+"NuLL \n";
+      
+    
+    
+    }else{
+    
+    Data = Data+"Ventanilla"+cont+"->"+"Imagen"+vent+contador+"\n";
+        while (actual.getSiguiente() != null){
+        
+        Data = Data + "Imagen"+vent+contador+"[label=\""+((Imagen)(actual.getElemento())).getTipo()+((Imagen)(actual.getElemento())).getId()+contador+"\"];\n";
+        actual = actual.getSiguiente();
+        contador++;
+    }
+    Data = Data + "Imagen"+vent+contador+"[label=\""+((Imagen)(actual.getElemento())).getTipo()+((Imagen)(actual.getElemento())).getId()+contador+"\"];\n";
+    Data = Data + "";
+    
+    cabeza = head;
+    contador = 1;
+    while (actual2.getSiguiente() != null){
+        
+        Data = Data + "Imagen"+vent+contador+"->Imagen"+vent+(contador+1)+"\n";
+        actual2 = actual2.getSiguiente();
+        contador++;
+    }
+    Data = Data + "Imagen"+vent+contador+"->NuLL"+contador+" \n ";
+    
+    
+    
+    }
+    
+    
+    return Data;
+    }
+    
+    
+    
+    
+    }

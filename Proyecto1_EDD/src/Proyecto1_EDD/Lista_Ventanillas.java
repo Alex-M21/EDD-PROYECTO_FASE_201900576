@@ -4,6 +4,10 @@
  */
 package Proyecto1_EDD;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+
 /**
  *
  * @author braya
@@ -133,8 +137,8 @@ public class Lista_Ventanillas {
         System.out.println(((Cliente)nv.arriba.getElemento()).getImg_BW());
        
     }
-    public void tomarImagenCliente(int id){
-    
+    public boolean tomarImagenCliente(int id){
+    boolean vacio = false;
      Nodo_Ventanillas nv = cabeza;
       
         
@@ -157,7 +161,7 @@ public class Lista_Ventanillas {
         ((Cliente)nv.arriba.getElemento()).setImg_C(c101);
         nv.lstImgVent.AgragarNodoFinal(new Imagen("Imagen Color",Id,0));
         System.out.println("Imgenes color restantes:"+((Cliente)nv.arriba.getElemento()).getImg_C());
-        
+        vacio = false;
         }else if(c100 == 0 && c04 > 0 ){
         
         c04 =  c04-1;
@@ -165,19 +169,20 @@ public class Lista_Ventanillas {
         ((Cliente)nv.arriba.getElemento()).setImg_BW(c101);
         nv.lstImgVent.AgragarNodoFinal(new Imagen("Imagen BW",Id,1));
         System.out.println("Imagenes BW restantes: "+((Cliente)nv.arriba.getElemento()).getImg_BW());
-        
+        vacio = false;
         
         }else {
         
         System.out.println("el cliente ya no tiene imagenes");
-        
+        vacio = true;
         }
         
-       
+       return vacio;
     }
     
     
-    public void SalidaCliente(int ventanilla,Lista_Espera lstEspera){
+    
+    public void SalidaCliente(int ventanilla,Lista_Espera lstEspera ,Cola_BW bw,Cola_Color color){
     Nodo_Ventanillas temp = cabeza;
     boolean redflag = false;
     System.out.println("Ventanilla buscada = "+ventanilla);
@@ -187,6 +192,12 @@ public class Lista_Ventanillas {
      Object clienteSale = temp.arriba.getElemento();
      
      lstEspera.AgreagarCircularInicio(clienteSale);
+     temp.lstImgVent.ExportarImpresoras(bw,color);
+     System.out.println("Esta parte se cortara:");
+     temp.lstImgVent.imprimir();
+     System.out.println("cortada:");
+     temp.lstImgVent.eliminarTodo();
+     temp.lstImgVent.imprimir();
      
      temp.linkArriba(null);
      
@@ -204,15 +215,30 @@ public class Lista_Ventanillas {
      Object clienteSale = temp.arriba.getElemento();
      
      lstEspera.AgreagarCircularInicio(clienteSale);
+     lstEspera.AgreagarCircularInicio(clienteSale);
+     temp.lstImgVent.ExportarImpresoras(bw,color);
+     System.out.println("Esta parte se cortara:");
+     temp.lstImgVent.imprimir();
+     System.out.println("cortada:");
+     temp.lstImgVent.eliminarTodo();
+     temp.lstImgVent.imprimir();
+     
      temp.linkArriba(null);
     
     }
    
     }
     
-    public void EnviarImgCola(){
+    public void EnviarImgCola(Cola_BW bw,Cola_Color color){
+    Nodo_Ventanillas actual = cabeza;
+    if (actual == null){
+    System.out.println("Esta es la lista vacia");
     
+    }else{
+    actual.lstImgVent.ExportarImpresoras(bw,color);
+        
     
+    }
     }
     
     public void imprimirArriba(){
@@ -312,5 +338,122 @@ public class Lista_Ventanillas {
     public void EliminarInicio() {
         cabeza = cabeza.getSiguiente().getSiguiente();
         size--;
+    }
+    
+     public String GraficarNodos(){
+    Nodo_Ventanillas actual = cabeza;
+    Nodo_Ventanillas actual2 = cabeza;
+    Nodo_Ventanillas head = cabeza;
+    String Data = "digraph G {\n";
+    int contador = 1;
+         while (actual.getSiguiente() != null) {
+             //Extraemos el nodo prinicipa 
+             Data = Data + "Ventanilla" + contador + "[label=\"" + (actual.getElemento()) + "\"];\n";
+             // Extraemos el nodo Cliente
+             if (actual.getArriba() != null) {
+                 Data = Data + "Ventanilla" + contador + "->" + "Cliente" + ((Cliente) ((Nodo_Recepcion) actual.getArriba()).getElemento()).getId() + "\n";
+             // si esta vacio imprime null 
+             } else {
+                 Data = Data + "Ventanilla" + contador + "->" + "null\n";
+             }
+             //Extraemos la lista de imagenes
+               if(actual.lstImgVent.size > 0){
+                   
+                   String ref = "vent"+contador;
+         Data = Data + actual.lstImgVent.GraficarNodos(ref,contador);
+         
+         
+         }else if(actual.lstImgVent.size == 0){
+         Data = Data + "Ventanilla"+contador+"->"+"Null \n";
+         }
+             
+             
+             actual = actual.getSiguiente();
+             contador++;
+         }
+         // Estraemos nodo principal
+         Data = Data + "Ventanilla" + contador + "[label=\"" + (actual.getElemento()) + "\"];\n";
+         // Extraemos el nodo cliente
+         if (actual.getArriba() != null) {
+             Data = Data + "Ventanilla" + contador + "->" + "Cliente" + ((Cliente) ((Nodo_Recepcion) actual.getArriba()).getElemento()).getId() + "\n";
+         //si esta vacio lo dirijimos a nulo
+         } else {
+             Data = Data + "Ventanilla" + contador + "->" + "null\n";
+         }
+         //Extraemos lista imagnes imagenes
+         if(actual.lstImgVent.size > 0){
+             String ref = "vent"+contador;
+         Data = Data + actual.lstImgVent.GraficarNodos(ref,contador);
+
+         
+         
+         }else if(actual.lstImgVent.size == 0){
+         Data = Data + "Ventanilla"+contador+"->"+"Null\n";
+         }
+         
+         
+         
+         
+         Data = Data + "";
+         cabeza = head;
+         contador = 1;
+         while (actual2.getSiguiente() != null) {
+
+             Data = Data + "Ventanilla" + contador + "->Ventanilla" + (contador + 1) + ";\n";
+             actual2 = actual2.getSiguiente();
+             contador++;
+         }
+    Data = Data + "Ventanilla"+contador+"->NULL"+";}\n";
+    
+    return Data;
+    
+    
+    }
+    
+    public void CrearTxt(String Data){
+    try {   //C:\Users\braya\OneDrive\Documentos\NetBeansProjects\Proyecto1_EDD\src\Code\\+fNombre+".txt";
+            String ruta = "C:\\Users\\braya\\OneDrive\\Documentos\\NetBeansProjects\\Proyecto1_EDD\\src\\Code\\Lista Ventanillas.txt";
+            String contenido = Data;
+            File file = new File(ruta);
+            // Si el archivo no existe es creado
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+            FileWriter fw = new FileWriter(file);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(contenido);
+            bw.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    
+    }
+    public void LLamarGraphviz(){
+    try {
+      
+      String GraficarRuta = "C:\\Program Files\\Graphviz\\bin\\dot.exe";
+      
+      String RutaEntrada = "C:\\Users\\braya\\OneDrive\\Documentos\\NetBeansProjects\\Proyecto1_EDD\\src\\Code\\Lista Ventanillas.txt";
+      String RutaSalida = "C:\\Users\\braya\\OneDrive\\Documentos\\NetBeansProjects\\Proyecto1_EDD\\src\\Graficas\\Lista Ventanillas.jpg";
+      
+      String tParametro = "-Tjpg";
+      String tOParam = "-o";
+        
+      String[] composicion = new String[5];
+      composicion[0] = GraficarRuta;
+      composicion[1] = tParametro;
+      composicion[2] = RutaEntrada;
+      composicion[3] = tOParam;
+      composicion[4] = RutaSalida;
+                  
+      Runtime rt = Runtime.getRuntime();
+      
+      rt.exec( composicion );
+      
+    } catch (Exception ex) {
+      ex.printStackTrace();
+    } finally {
+    }
+    
     }
 }
