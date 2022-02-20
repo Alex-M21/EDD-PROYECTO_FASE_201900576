@@ -26,6 +26,29 @@ public class Lista_Ventanillas {
     public boolean ValVacio() {
         return (cabeza == null) ? true : false;
     }
+    
+    public boolean IterarTodo(){
+     Nodo_Ventanillas temp = cabeza;
+     int contador = 0;
+     int tamaño = size;
+     boolean terminado = false;
+     
+     if(temp != null){
+     while(temp.getSiguiente()!= null){
+         if(temp.getArriba()==null){
+         contador++;
+         }
+         
+     temp = temp.getSiguiente();
+     }
+     if(contador==tamaño){
+     terminado = true;
+     }else{
+     terminado = false;
+     }
+     }
+    return terminado;
+    }
 
     public void AgregarNodoInicio(Object algo,int id) {
         // Cuando la lista esta vacia
@@ -58,6 +81,7 @@ public class Lista_Ventanillas {
     
     public void IngresoCliente(Object cliente){
     Nodo_Ventanillas temp = cabeza;
+    if(cliente != null){
     while(temp.getArriba()!= null){
         temp = temp.getSiguiente();
     }
@@ -65,6 +89,9 @@ public class Lista_Ventanillas {
     Nodo_Recepcion cli = new Nodo_Recepcion(cliente);
     temp.linkArriba(cli);
     System.out.println("ingreso un cliente:"+((Cliente)cli.getElemento()).getNombre());
+    
+    }
+    
     
     }
     
@@ -137,6 +164,23 @@ public class Lista_Ventanillas {
         System.out.println(((Cliente)nv.arriba.getElemento()).getImg_BW());
        
     }
+    public int RevisarCliente(){
+        int ventanillaVacia = 0;
+        Nodo_Ventanillas nv = cabeza;
+        int contador = 1;
+        
+        do{
+            if(nv.getArriba() == null){
+            ventanillaVacia = contador;
+            }
+            nv = nv.getSiguiente();
+        contador++;
+        
+        }while(nv.getSiguiente() != null);
+        
+    return ventanillaVacia;
+    }
+    
     public boolean tomarImagenCliente(int id){
     boolean vacio = false;
      Nodo_Ventanillas nv = cabeza;
@@ -146,7 +190,8 @@ public class Lista_Ventanillas {
             
         nv = nv.getSiguiente();
         }
-         System.out.println("Buscamos ventanilla "+ id);
+        if(nv.getArriba() != null){
+            System.out.println("Buscamos ventanilla "+ id);
         System.out.println("Este es el elemento "+nv.getElemento());
         String c99 = ((Cliente)nv.arriba.getElemento()).getImg_C();
         String Id = ((Cliente)nv.arriba.getElemento()).getId();
@@ -177,12 +222,18 @@ public class Lista_Ventanillas {
         vacio = true;
         }
         
+        }else{
+        System.out.println("No existe el cliente");
+        }
+        
+         
+        
        return vacio;
     }
     
     
     
-    public void SalidaCliente(int ventanilla,Lista_Espera lstEspera ,Cola_BW bw,Cola_Color color){
+    public void SalidaCliente(int ventanilla,Lista_Circular lstEspera ,Cola_BW bw,Cola_Color color){
     Nodo_Ventanillas temp = cabeza;
     boolean redflag = false;
     System.out.println("Ventanilla buscada = "+ventanilla);
@@ -191,13 +242,13 @@ public class Lista_Ventanillas {
      System.out.println("Se eliminara el cliente"+temp.getElemento());
      Object clienteSale = temp.arriba.getElemento();
      
-     lstEspera.AgreagarCircularInicio(clienteSale);
+     lstEspera.ingresar(clienteSale);
      temp.lstImgVent.ExportarImpresoras(bw,color);
      System.out.println("Esta parte se cortara:");
      temp.lstImgVent.imprimir();
      System.out.println("cortada:");
      temp.lstImgVent.eliminarTodo();
-     temp.lstImgVent.imprimir();
+     //temp.lstImgVent.imprimir();
      
      temp.linkArriba(null);
      
@@ -214,8 +265,8 @@ public class Lista_Ventanillas {
      System.out.println("Se eliminara el cliente"+temp.getElemento());
      Object clienteSale = temp.arriba.getElemento();
      
-     lstEspera.AgreagarCircularInicio(clienteSale);
-     lstEspera.AgreagarCircularInicio(clienteSale);
+     lstEspera.ingresar(clienteSale);
+     lstEspera.ingresar(clienteSale);
      temp.lstImgVent.ExportarImpresoras(bw,color);
      System.out.println("Esta parte se cortara:");
      temp.lstImgVent.imprimir();
@@ -354,7 +405,7 @@ public class Lista_Ventanillas {
                  Data = Data + "Ventanilla" + contador + "->" + "Cliente" + ((Cliente) ((Nodo_Recepcion) actual.getArriba()).getElemento()).getId() + "\n";
              // si esta vacio imprime null 
              } else {
-                 Data = Data + "Ventanilla" + contador + "->" + "null\n";
+                 Data = Data + "Ventanilla" + contador + "->" + "NuLl"+contador+"\n";
              }
              //Extraemos la lista de imagenes
                if(actual.lstImgVent.size > 0){
@@ -364,7 +415,7 @@ public class Lista_Ventanillas {
          
          
          }else if(actual.lstImgVent.size == 0){
-         Data = Data + "Ventanilla"+contador+"->"+"Null \n";
+         Data = Data + "Ventanilla"+contador+"->"+"Null"+contador+"\n";
          }
              
              
@@ -378,7 +429,7 @@ public class Lista_Ventanillas {
              Data = Data + "Ventanilla" + contador + "->" + "Cliente" + ((Cliente) ((Nodo_Recepcion) actual.getArriba()).getElemento()).getId() + "\n";
          //si esta vacio lo dirijimos a nulo
          } else {
-             Data = Data + "Ventanilla" + contador + "->" + "null\n";
+             Data = Data + "Ventanilla" + contador + "->" + "NulL"+contador+"\n";
          }
          //Extraemos lista imagnes imagenes
          if(actual.lstImgVent.size > 0){
@@ -388,7 +439,7 @@ public class Lista_Ventanillas {
          
          
          }else if(actual.lstImgVent.size == 0){
-         Data = Data + "Ventanilla"+contador+"->"+"Null\n";
+         Data = Data + "Ventanilla"+contador+"->"+"NUll"+contador+"\n";
          }
          
          
@@ -403,7 +454,7 @@ public class Lista_Ventanillas {
              actual2 = actual2.getSiguiente();
              contador++;
          }
-    Data = Data + "Ventanilla"+contador+"->NULL"+";}\n";
+    Data = Data + "Ventanilla"+contador+"->NULL"+contador+"}\n";
     
     return Data;
     

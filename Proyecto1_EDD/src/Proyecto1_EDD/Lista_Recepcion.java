@@ -79,8 +79,9 @@ public class Lista_Recepcion {
     public Object ObtenerPrimero(){
     Nodo_Recepcion temporal = cabeza;
     Nodo_Recepcion temporal2 = cabeza;
-    Object retorno;
-    if(temporal.getSiguiente() != null){
+    Object retorno = null;
+    if (temporal != null){
+     if(temporal.getSiguiente() != null){
     int contador = 0;
     int contador2 = 0; 
     while(temporal.getSiguiente() != null){
@@ -96,14 +97,19 @@ public class Lista_Recepcion {
     
     
     
-    }else{
-    retorno = cabeza.getElemento();
+    }else if(temporal.getSiguiente()==null ){
+    retorno = temporal.getElemento();
     cabeza = null;
     
     
+    }else{
+    retorno = null;
     }
+    
+    }  
+   size--;
    return retorno;
-    }
+   }
 
     
     public void EliminarNodo(int index) {
@@ -152,7 +158,11 @@ public class Lista_Recepcion {
     Nodo_Recepcion head = cabeza;
     String Data = "digraph G {\n";
     int contador = 1;
-    while (actual.getSiguiente() != null){
+    if (actual == null){
+    
+    Data =Data+"NULL \n }";
+    }else{
+        while (actual.getSiguiente() != null){
         
         Data = Data + "Cliente"+contador+"[label=\""+"Cliente"+((Cliente)actual.getElemento()).id+"  "+((Cliente)actual.getElemento()).getNombre()+"\"];\n";
         actual = actual.getSiguiente();
@@ -170,6 +180,12 @@ public class Lista_Recepcion {
         contador++;
     }
     Data = Data + "Cliente"+contador+"->NULL \n }";
+    
+    
+    
+    }
+    
+    
     
     return Data;
     

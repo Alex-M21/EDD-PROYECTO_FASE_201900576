@@ -10,16 +10,15 @@ package Proyecto1_EDD;
  */
 public class Nodo_Espera {
     Object element;
-    
     Nodo_Espera siguiente;
     Nodo_Espera anterior;
-    Lista_Imagenes_Ventanilla lstImageEspera = new Lista_Imagenes_Ventanilla();
+    Lista_Imagenes  lstImagenes= new Lista_Imagenes();
 
     public Nodo_Espera(Object element, Nodo_Espera siguiente,Nodo_Espera anterior) {
         this.element = element;
         this.anterior = null;
         this.siguiente = null;
-        this.lstImageEspera = lstImageEspera;
+        this.lstImagenes = lstImagenes;
     }
 
     public Object getElement() {

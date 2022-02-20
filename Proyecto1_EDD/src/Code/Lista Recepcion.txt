@@ -1,15 +1,3 @@
 digraph G {
-Cliente1[label="Cliente2002  Liam Cabrera"];
-Cliente2[label="Cliente2000  Charlotte Caballeros"];
-Cliente3[label="Cliente1999  Oliver Arevalo"];
-Cliente4[label="Cliente3  Luiz Higueros"];
-Cliente5[label="Cliente2  Juan Perez"];
-Cliente6[label="Cliente1  Andres Lopez"];
-rankdir=LR;
-Cliente1->Cliente2
-Cliente2->Cliente3
-Cliente3->Cliente4
-Cliente4->Cliente5
-Cliente5->Cliente6
-Cliente6->NULL 
+NULL 
  }

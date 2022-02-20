@@ -1,13 +1,43 @@
 digraph G {
 Ventanilla1[label="Ventanilla 1"];
-Ventanilla1->null
+Ventanilla1->Cliente2000
 
-Ventanilla1->NuLL 
-Ventanilla2[label="Ventanilla 2"];
-Ventanilla2->Cliente2000
+Ventanilla1->Imagenvent11
+Imagenvent11[label="Imagen Color20001"];
+Imagenvent12[label="Imagen Color20002"];
+Imagenvent11->Imagenvent12
+Imagenvent12->NuLLvent1 
+ Ventanilla2[label="Ventanilla 2"];
+Ventanilla2->Cliente2
 
 Ventanilla2->Imagenvent21
-Imagenvent21[label="Imagen Color20001"];
-Imagenvent21->NuLL1 
- Ventanilla1->Ventanilla2;
-Ventanilla2->NULL;}
+Imagenvent21[label="Imagen Color21"];
+Imagenvent22[label="Imagen Color22"];
+Imagenvent23[label="Imagen Color23"];
+Imagenvent24[label="Imagen BW24"];
+Imagenvent25[label="Imagen BW25"];
+Imagenvent26[label="Imagen BW26"];
+Imagenvent27[label="Imagen BW27"];
+Imagenvent21->Imagenvent22
+Imagenvent22->Imagenvent23
+Imagenvent23->Imagenvent24
+Imagenvent24->Imagenvent25
+Imagenvent25->Imagenvent26
+Imagenvent26->Imagenvent27
+Imagenvent27->NuLLvent2 
+ Ventanilla3[label="Ventanilla 3"];
+Ventanilla3->Cliente2002
+
+Ventanilla3->Imagenvent31
+Imagenvent31[label="Imagen Color20021"];
+Imagenvent32[label="Imagen Color20022"];
+Imagenvent31->Imagenvent32
+Imagenvent32->NuLLvent3 
+ Ventanilla4[label="Ventanilla 4"];
+Ventanilla4->NulL4
+
+Ventanilla4->NuLL4
+Ventanilla1->Ventanilla2;
+Ventanilla2->Ventanilla3;
+Ventanilla3->Ventanilla4;
+Ventanilla4->NULL4}

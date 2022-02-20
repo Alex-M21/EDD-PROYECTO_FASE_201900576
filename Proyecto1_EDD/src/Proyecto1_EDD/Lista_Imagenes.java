@@ -26,28 +26,29 @@ public class Lista_Imagenes {
     public void AgregarNodoInicio(Object algo) {
         // Cuando la lista esta vacia
         if (cabeza == null) {
+            System.out.println("Agregando");
             cabeza = new Nodo_Imagenes(algo);
             // cuando la lista esta llena
         } else {
             Nodo_Imagenes temp = cabeza;
+             System.out.println("Agregando");
             Nodo_Imagenes nuevo = new Nodo_Imagenes(algo);
             nuevo.linkSiguiente(temp);
             cabeza = nuevo;
         }
         size++;
-
     }
     
-    public void imprimir(){
+    public void imprimirImagenesEspera(){
     Nodo_Imagenes temp = cabeza;
     
     if(cabeza != null){
     String data = "";
     while (temp.getSiguiente() != null){
-    data =data+"-->"+((Cliente)temp.getElemento()).getNombre(); 
+    data =data+"-->"+(temp.getElemento()); 
     temp = temp.getSiguiente();
     }
-    data =data+"-->"+((Cliente)temp.getElemento()).getNombre();
+    data =data+"-->"+(temp.getElemento());
     System.out.println(data);
     }else{
     System.out.println("La lista esta vacia");
@@ -138,5 +139,43 @@ public class Lista_Imagenes {
     public void EliminarInicio() {
         cabeza = cabeza.getSiguiente().getSiguiente();
         size--;
+    }
+     public String GraficarNodos(String vent,int cont){
+    Nodo_Imagenes actual = cabeza;
+    Nodo_Imagenes actual2 = cabeza;
+    Nodo_Imagenes head = cabeza;
+    String Data = "\n";
+    int contador = 1;
+    if(actual == null){
+     Data = Data+"Cliente"+cont+"->"+"NuLL \n";
+     
+    }else{
+    
+    Data = Data+"Cliente"+cont+"->"+"Imagen"+vent+contador+"\n";
+        while (actual.getSiguiente() != null){
+        
+        Data = Data + "Imagen"+vent+contador+"[label=\""+((Imagen)(actual.getElemento())).getTipo()+((Imagen)(actual.getElemento())).getId()+contador+"\"];\n";
+        actual = actual.getSiguiente();
+        contador++;
+    }
+    Data = Data + "Imagen"+vent+contador+"[label=\""+((Imagen)(actual.getElemento())).getTipo()+((Imagen)(actual.getElemento())).getId()+contador+"\"];\n";
+    Data = Data + "";
+    
+    cabeza = head;
+    contador = 1;
+    while (actual2.getSiguiente() != null){
+        
+        Data = Data + "Imagen"+vent+contador+"->Imagen"+vent+(contador+1)+"\n";
+        actual2 = actual2.getSiguiente();
+        contador++;
+    }
+    Data = Data + "Imagen"+vent+contador+"->NuLL"+vent+" \n ";
+    
+    
+    
+    }
+    
+    
+    return Data;
     }
 }

@@ -59,10 +59,10 @@ public class Lista_Imagenes_Ventanilla {
     System.out.println("La lista imagenes esta vacia");
     }else{
         while (temp.getSiguiente() != null){
-    data =data+"-->"+ temp.getElemento().toString(); 
+    data =data+"-->"+ temp.getElemento(); 
     temp = temp.getSiguiente();
     }
-    data =data+"-->"+temp.getElemento().toString();
+    data =data+"-->"+temp.getElemento();
     System.out.println(data);
     }
     
@@ -142,7 +142,8 @@ public class Lista_Imagenes_Ventanilla {
     Nodo_Imagenes actual =cabeza;
     while(actual.getSiguiente() != null){
         
-        Object imagen = ((Imagen)actual.getElemento()).tipo;
+        Object imagen = (actual.getElemento());
+        System.out.println(imagen);
         int numimpresora = ((Imagen)actual.getElemento()).impresora;
         if(numimpresora == 1){
         // Impresora Blaco y negro
@@ -152,13 +153,26 @@ public class Lista_Imagenes_Ventanilla {
         colaC.AgregarNodoInicio(imagen);
         }  
         actual = actual.getSiguiente();
-        System.out.println("Esta cola color");
-        //colaC.imprimir();
+        
+        
+        
+    }
+    Object imagen = (actual.getElemento());
+        System.out.println(imagen);
+        int numimpresora = ((Imagen)actual.getElemento()).impresora;
+        if(numimpresora == 1){
+        // Impresora Blaco y negro
+        colaBW.AgregarNodoInicio(imagen);
+        }else if(numimpresora == 0){
+        // Impresora Color
+        colaC.AgregarNodoInicio(imagen);
+        }  
+    
+    System.out.println("Esta cola color");
+        colaC.imprimir();
         
         System.out.println("Esta cola BW");
         colaBW.imprimir();
-        
-    }
     
     
     }
@@ -174,7 +188,7 @@ public class Lista_Imagenes_Ventanilla {
     String Data = "\n";
     int contador = 1;
     if(actual == null){
-     Data = Data+"Ventanilla"+cont+"->"+"NuLL \n";
+     Data = Data+"Ventanilla"+cont+"->"+"NuLL"+cont+"\n";
       
     
     
@@ -198,7 +212,7 @@ public class Lista_Imagenes_Ventanilla {
         actual2 = actual2.getSiguiente();
         contador++;
     }
-    Data = Data + "Imagen"+vent+contador+"->NuLL"+contador+" \n ";
+    Data = Data + "Imagen"+vent+contador+"->NuLL"+vent+" \n ";
     
     
     

@@ -10,6 +10,8 @@ package Proyecto1_EDD;
  */
 public class Nodo_Imagenes {
      Object elemento;
+     
+     
   
      Nodo_Imagenes siguiente;
 

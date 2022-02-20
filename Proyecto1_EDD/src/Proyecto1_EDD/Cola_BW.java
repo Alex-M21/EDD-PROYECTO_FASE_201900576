@@ -45,10 +45,10 @@ public class Cola_BW {
     if(cabeza != null){
     String data = "";
     while (temp.getSiguiente() != null){
-    data =data+"-->"+((Imagen)temp.getImagen()).getTipo(); 
+    data =data+"-->"+(temp.getImagen()); 
     temp = temp.getSiguiente();
     }
-    data =data+"-->"+((Cliente)temp.getImagen()).getNombre();
+    data =data+"-->"+(temp.getImagen());
     System.out.println(data);
     }else{
     System.out.println("La Cola_BW esta vacia");
@@ -154,11 +154,11 @@ public class Cola_BW {
     }else{
      while (actual.getSiguiente() != null){
         
-        Data = Data + "Imagen"+contador+"[label=\""+"Imagen"+((Imagen)actual.getImagen()).id+"  "+((Imagen)actual.getImagen()).getTipo()+"\"];\n";
+        Data = Data + "Imagen"+contador+"[label=\""+"Imagen"+contador+"  "+((Imagen)actual.getImagen()).getTipo()+"\"];\n";
         actual = actual.getSiguiente();
         contador++;
     }
-    Data = Data + "Imagen"+contador+"[label=\""+"Imagen"+((Imagen)actual.getImagen()).id+"  "+((Imagen)actual.getImagen()).getTipo()+"\"];\n";
+    Data = Data + "Imagen"+contador+"[label=\""+"Imagen"+contador+"  "+((Imagen)actual.getImagen()).getTipo()+"\"];\n";
     Data = Data + "rankdir=LR;\n";
     
     cabeza = head;
@@ -169,7 +169,7 @@ public class Cola_BW {
         actual2 = actual2.getSiguiente();
         contador++;
     }
-    Data = Data + "Imegen"+contador+"->NULL \n }";
+    Data = Data + "Imagen"+contador+"->NULL \n }";
     
     }
     return Data;
@@ -198,8 +198,8 @@ public class Cola_BW {
       
       String GraficarRuta = "C:\\Program Files\\Graphviz\\bin\\dot.exe";
       
-      String RutaEntrada = "C:\\Users\\braya\\OneDrive\\Documentos\\NetBeansProjects\\Proyecto1_EDD\\src\\Code\\Cola_WB.txt";
-      String RutaSalida = "C:\\Users\\braya\\OneDrive\\Documentos\\NetBeansProjects\\Proyecto1_EDD\\src\\Graficas\\Cola_WB.jpg";
+      String RutaEntrada = "C:\\Users\\braya\\OneDrive\\Documentos\\NetBeansProjects\\Proyecto1_EDD\\src\\Code\\Cola_BW.txt";
+      String RutaSalida = "C:\\Users\\braya\\OneDrive\\Documentos\\NetBeansProjects\\Proyecto1_EDD\\src\\Graficas\\Cola_BW.jpg";
       
       String tParametro = "-Tjpg";
       String tOParam = "-o";
@@ -222,5 +222,43 @@ public class Cola_BW {
     
     }
     
+    public void EntregarImagenCliente(Lista_Circular esp){
+    Nodo_impresion temp = cabeza;
+    Nodo_impresion temp2 = cabeza;
+    
+    if(temp == null){
+    System.out.println("La Cola Impresion BW esta vacia");
+    
+    
+    }else if(temp.getSiguiente() != null){
+    int contador1 = 1;
+    int contador2 = 1;
+    while(temp.getSiguiente() != null){
+    temp = temp.getSiguiente();
+        contador1++;
+    }
+     System.out.println("Este es el utlimon nodo : "+temp.getImagen());
+     String modoBusqueda = ((Imagen)temp.getImagen()).getId();
+     Object imgterminada = temp.getImagen();
+    
+     esp.BuscarAgregar(modoBusqueda,imgterminada);
+   
+     
+     while(contador2 != (contador1-1)){
+     temp2 = temp2.getSiguiente();
+     contador2++;
+     }
+     
+     temp2.linkSiguiente(null);
+     
+    }else if (temp.getSiguiente() == null){
+    String modoBusqueda = ((Imagen)temp.getImagen()).getId();
+    Object imgterminada = temp.getImagen();
+    esp.BuscarAgregar(modoBusqueda,imgterminada);    
+    cabeza = null;
+    
+    }
+    
+    }    
 }
 
