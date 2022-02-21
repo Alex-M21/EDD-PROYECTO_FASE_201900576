@@ -1,3 +1,101 @@
 digraph G {
-NULL 
+Cliente1[label="Cliente2002  Noah Mejia"];
+Cliente2[label="Cliente2000  Olivia Gramajo"];
+Cliente3[label="Cliente1999  Charlotte Barrientos"];
+Cliente4[label="Cliente50  Shana Burke"];
+Cliente5[label="Cliente49  Romero Sanders"];
+Cliente6[label="Cliente48  Vicky Jimenez"];
+Cliente7[label="Cliente47  Ethel Cortez"];
+Cliente8[label="Cliente46  Washington Dickerson"];
+Cliente9[label="Cliente45  Hatfield Sykes"];
+Cliente10[label="Cliente44  Garza York"];
+Cliente11[label="Cliente43  Macdonald Murray"];
+Cliente12[label="Cliente42  Etta Blake"];
+Cliente13[label="Cliente41  Christa Mendoza"];
+Cliente14[label="Cliente40  Brigitte Wheeler"];
+Cliente15[label="Cliente39  Maddox Frazier"];
+Cliente16[label="Cliente38  Mabel Nicholson"];
+Cliente17[label="Cliente37  Erma Barron"];
+Cliente18[label="Cliente36  Witt Forbes"];
+Cliente19[label="Cliente35  Bennett Malone"];
+Cliente20[label="Cliente34  Heidi Lowery"];
+Cliente21[label="Cliente33  Dixie Howard"];
+Cliente22[label="Cliente32  Andrews Vance"];
+Cliente23[label="Cliente31  Maggie Levine"];
+Cliente24[label="Cliente30  Moore Horton"];
+Cliente25[label="Cliente29  Whitney Clayton"];
+Cliente26[label="Cliente28  Ellison Hood"];
+Cliente27[label="Cliente27  Hudson Lancaster"];
+Cliente28[label="Cliente26  Evelyn Fitzgerald"];
+Cliente29[label="Cliente25  Jolene Mccall"];
+Cliente30[label="Cliente24  Carolyn Harmon"];
+Cliente31[label="Cliente23  Gay Mcmillan"];
+Cliente32[label="Cliente22  Nola Winters"];
+Cliente33[label="Cliente21  Pruitt Perez"];
+Cliente34[label="Cliente20  Roman Branch"];
+Cliente35[label="Cliente19  Geraldine Pierce"];
+Cliente36[label="Cliente18  Long Meyer"];
+Cliente37[label="Cliente17  Gutierrez Casey"];
+Cliente38[label="Cliente16  Noelle Morse"];
+Cliente39[label="Cliente15  Elinor Ford"];
+Cliente40[label="Cliente14  Durham Logan"];
+Cliente41[label="Cliente13  Haley Rosario"];
+Cliente42[label="Cliente12  Alyce Alford"];
+Cliente43[label="Cliente11  Leigh Bright"];
+Cliente44[label="Cliente10  Shannon Johnston"];
+Cliente45[label="Cliente9  Tommie Mcpherson"];
+Cliente46[label="Cliente8  Tabatha Pickett"];
+Cliente47[label="Cliente7  Leach Ross"];
+Cliente48[label="Cliente6  Stefanie Wise"];
+Cliente49[label="Cliente5  Sandy Mason"];
+rankdir=LR;
+Cliente1->Cliente2
+Cliente2->Cliente3
+Cliente3->Cliente4
+Cliente4->Cliente5
+Cliente5->Cliente6
+Cliente6->Cliente7
+Cliente7->Cliente8
+Cliente8->Cliente9
+Cliente9->Cliente10
+Cliente10->Cliente11
+Cliente11->Cliente12
+Cliente12->Cliente13
+Cliente13->Cliente14
+Cliente14->Cliente15
+Cliente15->Cliente16
+Cliente16->Cliente17
+Cliente17->Cliente18
+Cliente18->Cliente19
+Cliente19->Cliente20
+Cliente20->Cliente21
+Cliente21->Cliente22
+Cliente22->Cliente23
+Cliente23->Cliente24
+Cliente24->Cliente25
+Cliente25->Cliente26
+Cliente26->Cliente27
+Cliente27->Cliente28
+Cliente28->Cliente29
+Cliente29->Cliente30
+Cliente30->Cliente31
+Cliente31->Cliente32
+Cliente32->Cliente33
+Cliente33->Cliente34
+Cliente34->Cliente35
+Cliente35->Cliente36
+Cliente36->Cliente37
+Cliente37->Cliente38
+Cliente38->Cliente39
+Cliente39->Cliente40
+Cliente40->Cliente41
+Cliente41->Cliente42
+Cliente42->Cliente43
+Cliente43->Cliente44
+Cliente44->Cliente45
+Cliente45->Cliente46
+Cliente46->Cliente47
+Cliente47->Cliente48
+Cliente48->Cliente49
+Cliente49->NULL 
  }

@@ -18,44 +18,24 @@ ImagenClient15->NuLLClient1
 Cliente3->Cliente2
 
 Cliente2->ImagenClient21
-ImagenClient21[label="Imagen Color31"];
-ImagenClient22[label="Imagen Color32"];
-ImagenClient23[label="Imagen BW33"];
+ImagenClient21[label="Imagen BW21"];
+ImagenClient22[label="Imagen BW22"];
+ImagenClient23[label="Imagen Color23"];
+ImagenClient24[label="Imagen BW24"];
 ImagenClient21->ImagenClient22
 ImagenClient22->ImagenClient23
-ImagenClient23->NuLLClient2 
- Cliente3->Cliente4
-Cliente4->Cliente3
-
+ImagenClient23->ImagenClient24
+ImagenClient24->NuLLClient2 
+ 
 Cliente3->ImagenClient31
-ImagenClient31[label="Imagen Color31"];
-ImagenClient32[label="Imagen Color32"];
-ImagenClient33[label="Imagen BW33"];
+ImagenClient31[label="Imagen BW21"];
+ImagenClient32[label="Imagen BW22"];
+ImagenClient33[label="Imagen Color23"];
+ImagenClient34[label="Imagen BW24"];
 ImagenClient31->ImagenClient32
 ImagenClient32->ImagenClient33
-ImagenClient33->NuLLClient3 
- Cliente4->Cliente5
-Cliente5->Cliente4
-
-Cliente4->ImagenClient41
-ImagenClient41[label="Imagen Color19991"];
-ImagenClient42[label="Imagen BW19992"];
-ImagenClient43[label="Imagen Color19993"];
-ImagenClient44[label="Imagen BW19994"];
-ImagenClient41->ImagenClient42
-ImagenClient42->ImagenClient43
-ImagenClient43->ImagenClient44
-ImagenClient44->NuLLClient4 
- 
-Cliente5->ImagenClient51
-ImagenClient51[label="Imagen Color19991"];
-ImagenClient52[label="Imagen BW19992"];
-ImagenClient53[label="Imagen Color19993"];
-ImagenClient54[label="Imagen BW19994"];
-ImagenClient51->ImagenClient52
-ImagenClient52->ImagenClient53
-ImagenClient53->ImagenClient54
-ImagenClient54->NuLLClient5 
- Cliente1 ->Cliente5
-Cliente5->Cliente1 
+ImagenClient33->ImagenClient34
+ImagenClient34->NuLLClient3 
+ Cliente1 ->Cliente3
+Cliente3->Cliente1 
 }

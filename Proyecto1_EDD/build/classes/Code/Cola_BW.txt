@@ -1,2 +1,5 @@
 digraph G {
-NULL }
+Imagen1[label="Imagen1  Imagen BW"];
+rankdir=LR;
+Imagen1->NULL 
+ }

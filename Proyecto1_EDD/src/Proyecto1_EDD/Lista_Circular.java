@@ -41,13 +41,17 @@ public class Lista_Circular {
     }
 
     public void mostrar() {
-
+        
         Nodo_2 actual = new Nodo_2();
         actual = primero;
+        if(actual != null){
         do {
             System.out.println(((Cliente) actual.datos).Nombre);
             actual = actual.siguiente;
         } while (actual != primero);
+        
+        }
+        
     }
 
     public void Buscar(String x) {

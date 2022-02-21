@@ -183,16 +183,7 @@ public class Proyecto1_EDD {
             
             // En la cola de recpcion pueden ingresar clientes de forma aleatoria
             // mostrar vacio de las estructuras que no se usan
-            System.out.println("--------------LA LISTA RECEPCION---------------");
-            lstR.imprimir();
-            System.out.println("--------------LA LISTA VENTANILLA--------------");
-            lstV.imprimir();
-            System.out.println("--------------LA LISTA DE ESPERA-------------- ");
-            lstE.mostrar();
-            System.out.println("--------------LA COLA IMRESION BW--------------");
-            colaBW.imprimir();
-            System.out.println("------------LA COLA IMPRESION COLOR------------");
-            colaC.imprimir();
+           
            
             break;
         case 2:
@@ -269,6 +260,16 @@ public class Proyecto1_EDD {
             System.out.println("---------------------PASO " + contadorPasos + "-----------------------");
 
             System.out.println("Este es el numero de servidores" + numeroservidores);
+             System.out.println("--------------LA LISTA RECEPCION---------------");
+            lstR.imprimir();
+            System.out.println("--------------LA LISTA VENTANILLA--------------");
+            lstV.imprimir();
+            System.out.println("--------------LA LISTA DE ESPERA-------------- ");
+            lstE.mostrar();
+            System.out.println("--------------LA COLA IMRESION BW--------------");
+            colaBW.imprimir();
+            System.out.println("------------LA COLA IMPRESION COLOR------------");
+            colaC.imprimir();
             contadorPasos++;
             int i;
             boolean ImagenesCompletas = false;
@@ -501,21 +502,27 @@ public class Proyecto1_EDD {
                         break;
                     case 3:
                         System.out.println("Selecciono 3 esta en la funcion Estado de memoria de las estructuras");
-                        //System.out.println(lstRecepcion.ObtenerPrimero());
-                        //lstRecepcion.EliminarInicio();
-                        //lstRecepcion.imprimir();
-                        //Lista_Ventanillas lstVenta = new Lista_Ventanillas();
-                        //Cliente cl99 = new Cliente("00","Brayan Mejia","3","3");
-                        /*lstVenta.AgragarNodoFinal("vetanilla 99");
-                        lstVenta.imprimir();
-                        lstVenta.IngresoCliente(cl99);
-                        lstVenta.ProcesarImagenes("ventanilla 99");
-                        lstVenta.tomarImagenCliente("ventanilla 99");
-                        lstVenta.tomarImagenCliente("ventanilla 99");
-                        lstVenta.tomarImagenCliente("ventanilla 99");
-                        lstVenta.tomarImagenCliente("ventanilla 99");
-                        */
+                          String Datavent = lstVent.GraficarNodos();
+                          lstVent.CrearTxt(Datavent);
+                          lstVent.LLamarGraphviz();
+                          String DataRec = lstRecepcion.GraficarNodos();
+                          lstRecepcion.CrearTxt(DataRec, "Lista Recepcion");
+                          lstRecepcion.LLamarGraphviz(DataRec);
+                          String DataEsp = lstEspera.Graficar();
+                          lstEspera.CrearTxt(DataEsp);
+                          lstEspera.LLamarGraphviz();
+                          String black = colaBW.GraficarNodosImg();
+                          colaBW.CrearTxt(black);
+                          colaBW.LLamarGraphviz();
+                          String col = colaC.GraficarNodosImg();
+                          colaC.CrearTxt(col);
+                          colaC.LLamarGraphviz();
+                       
                         
+                        
+                        break;
+                    case 4:
+                        System.out.println("Selecciono 4 esta en la funcion Reportes");
                         Lista_Circular le1 = new Lista_Circular();
                         le1.ingresar(new Cliente("99","Brayan","4","5"));
                         le1.ingresar(new Cliente("21","Alexander","7","2"));
@@ -555,10 +562,6 @@ public class Proyecto1_EDD {
                         le1.LLamarGraphviz();
                         
                         */
-                        break;
-                    case 4:
-                        System.out.println("Selecciono 4 esta en la funcion Reportes");
-                        
                   
                         
                         
