@@ -233,7 +233,134 @@ public class Proyecto1_EDD {
             // el cliente 3 es atendido e ingreas a la lista de espera
             // La ventanilla 2 envia las iamgenes del cliente 3 a sus colas 
             // el cliente 1 ya posee todas sus imagenes
+            int nservidores = lstV.size;
+            int contPasos = 0;
+            System.out.println("---------------------PASO " + contPasos + "-----------------------");
+
+            System.out.println("Este es el numero de servidores" + nservidores);
+            System.out.println("--------------LA LISTA RECEPCION---------------");
+            lstR.imprimir();
+            System.out.println("--------------LA LISTA VENTANILLA--------------");
+            lstV.imprimir();
+            System.out.println("--------------LA LISTA DE ESPERA-------------- ");
+            lstE.mostrar();
+            System.out.println("--------------LA COLA IMRESION BW--------------");
+            colaBW.imprimir();
+            System.out.println("------------LA COLA IMPRESION COLOR------------");
+            colaC.imprimir();
+            contPasos++;
+            int i;
+            boolean ImagsCompletas = false;
+            for (i = 0; i < (nservidores); i++) {
+                System.out.println("---------------------PASO " + contPasos + "-----------------------");
+                System.out.println("La venetanilla" + (i + 1) + "Ingreso un cliente");
+                Object prim = lstR.ObtenerPrimero();
+                lstV.IngresoCliente(prim);
+                contPasos++;
+                int j;
+                for (j = nservidores; j >= i; j--) {
+                    System.out.println("---------------------PASO " + contPasos + "-----------------------");
+                    System.out.println("La venetanilla" + (i + 1) + "Ingreso un imagen");
+                    ImagsCompletas = lstV.tomarImagenCliente((i + 1));
+                    contPasos++;
+                    System.out.println("El cliente " + (i + 1) + "ya no tiene imagenes?  " + ImagsCompletas);
+
+                    if (ImagsCompletas == true) {
+                        System.out.println("---------------------PASO " + contPasos + "-----------------------");
+                        lstV.SalidaCliente((i + 1), lstE, colaBW, colaC);
+                        Object prim2 = lstR.ObtenerPrimero();
+                        contPasos++;
+                        ImagsCompletas = false;
+                        System.out.println("---------------------PASO " + contPasos + "-----------------------");
+                        lstV.IngresoCliente(prim2);
+                        if (colaBW.size > 0) {
+                            System.out.println("Imprimiendo BW:");
+                            colaBW.EntregarImagenCliente(lstE);
+                        }
+
+                        contPasos++;
+
+                    }
+                    System.out.println("---------------------PASO " + contPasos + "-----------------------");
+
+                    if (colaBW.size > 0) {
+                        System.out.println("Imprimiendo BW:");
+                        colaBW.EntregarImagenCliente(lstE);
+                    }
+
+                }
+            }
+
+            boolean ImagsCompletas2 = false;
+            System.out.println("fuera_del for");
+
+            boolean fin1 = false;
+           
+          
+                
+                while (ImagsCompletas2 != true) {
+                     fin1 = lstV.IterarTodo();
+                     //ImagenesCompletas2 = false;
+                     System.out.println("este es el fin"+ fin1);
+                    
+                    System.out.println("---------------------PASO " + contPasos + "-----------------------");
+                    for (int z = 0; z < nservidores; z++) {
+
+                        ImagsCompletas2 = lstV.tomarImagenCliente((z + 1));
+                        System.out.println("El cliente " + (z + 1) + "ya no tiene imagenes?  " + ImagsCompletas2);
+                        if (colaBW.size > 0) {
+                            System.out.println("Imprimiendo BW:");
+                            colaBW.EntregarImagenCliente(lstE);
+                        }
+                        if (colaC.size > 0) {
+                            System.out.println("Imprimiendo Color:");
+                            colaC.EntregarImagenCliente(lstE);
+                        }
+
+                        if (ImagsCompletas2 == true) {
+                            System.out.println("---------------------PASO " + contPasos + "-----------------------");
+                            lstV.SalidaCliente((z + 1), lstE, colaBW, colaC);
+                            Object prim2 = lstR.ObtenerPrimero();
+                            contPasos++;
+                            
+
+                            if (colaBW.size > 0) {
+                                System.out.println("Imprimiendo BW:");
+                                colaBW.EntregarImagenCliente(lstE);
+                            }
+
+                            System.out.println("---------------------PASO " + contPasos + "-----------------------");
+                            lstV.IngresoCliente(prim2);
+                            colaC.EntregarImagenCliente(lstE);
+                            contPasos++;
+                            
+                            
+                            if (colaBW.size > 0) {
+                                System.out.println("Imprimiendo BW:");
+                                colaBW.EntregarImagenCliente(lstE);
+                            }
+                            if (colaC.size > 0) {
+                                System.out.println("Imprimiendo Color:");
+                                colaC.EntregarImagenCliente(lstE);
+                            }
+
+                            
+                        }
+                        if (colaBW.size > 0) {
+                            System.out.println("Imprimiendo BW:");
+                            colaBW.EntregarImagenCliente(lstE);
+                        }
+                    }
+                    
+                    contPasos++;
+                    
+                   
+                }
             break;
+            
+            
+            
+         
         case 8:
             String DataR = lstR.GraficarNodos();
             lstR.CrearTxt(DataR,"Lista Recepcion");
@@ -260,7 +387,7 @@ public class Proyecto1_EDD {
             System.out.println("---------------------PASO " + contadorPasos + "-----------------------");
 
             System.out.println("Este es el numero de servidores" + numeroservidores);
-             System.out.println("--------------LA LISTA RECEPCION---------------");
+            System.out.println("--------------LA LISTA RECEPCION---------------");
             lstR.imprimir();
             System.out.println("--------------LA LISTA VENTANILLA--------------");
             lstV.imprimir();
@@ -271,7 +398,7 @@ public class Proyecto1_EDD {
             System.out.println("------------LA COLA IMPRESION COLOR------------");
             colaC.imprimir();
             contadorPasos++;
-            int i;
+            
             boolean ImagenesCompletas = false;
             for (i = 0; i < (numeroservidores); i++) {
                 System.out.println("---------------------PASO " + contadorPasos + "-----------------------");
@@ -283,107 +410,101 @@ public class Proyecto1_EDD {
                 for (j = numeroservidores; j >= i; j--) {
                     System.out.println("---------------------PASO " + contadorPasos + "-----------------------");
                     System.out.println("La venetanilla" + (i + 1) + "Ingreso un imagen");
-                    ImagenesCompletas = lstV.tomarImagenCliente((i+1));
+                    ImagenesCompletas = lstV.tomarImagenCliente((i + 1));
                     contadorPasos++;
-                    System.out.println("El cliente "+(i+1)+"ya no tiene imagenes?  "+ImagenesCompletas);
-                    
+                    System.out.println("El cliente " + (i + 1) + "ya no tiene imagenes?  " + ImagenesCompletas);
+
                     if (ImagenesCompletas == true) {
                         System.out.println("---------------------PASO " + contadorPasos + "-----------------------");
                         lstV.SalidaCliente((i + 1), lstE, colaBW, colaC);
                         Object prim2 = lstR.ObtenerPrimero();
                         contadorPasos++;
-                        ImagenesCompletas=false;
+                        ImagenesCompletas = false;
                         System.out.println("---------------------PASO " + contadorPasos + "-----------------------");
                         lstV.IngresoCliente(prim2);
-                        if(colaBW.size >0){
-                        System.out.println("Imprimiendo BW:");    
-                        colaBW.EntregarImagenCliente(lstE);
+                        if (colaBW.size > 0) {
+                            System.out.println("Imprimiendo BW:");
+                            colaBW.EntregarImagenCliente(lstE);
                         }
-                        
+
                         contadorPasos++;
-                     
+
                     }
                     System.out.println("---------------------PASO " + contadorPasos + "-----------------------");
-                   
-                     if(colaBW.size >0){
-                        System.out.println("Imprimiendo BW:");    
+
+                    if (colaBW.size > 0) {
+                        System.out.println("Imprimiendo BW:");
                         colaBW.EntregarImagenCliente(lstE);
-                        }
-                   
+                    }
+
                 }
             }
-      
+
             boolean ImagenesCompletas2 = false;
             System.out.println("fuera_del for");
-            int salida = lstV.RevisarCliente();
-            if(salida == 0){
-                while(ImagenesCompletas2 != true){
-                System.out.println("---------------------PASO " + contadorPasos + "-----------------------");
-                for(int z = 0; z<numeroservidores;z++){
+
+            boolean fin = false;
+           
+          
                 
-                ImagenesCompletas2 = lstV.tomarImagenCliente((z+1));
-                System.out.println("El cliente "+(z+1)+"ya no tiene imagenes?  "+ImagenesCompletas2);
-                if(colaBW.size >0){
-                        System.out.println("Imprimiendo BW:");    
-                        colaBW.EntregarImagenCliente(lstE);
-                        }
-                if (colaC.size >0){
-                    System.out.println("Imprimiendo Color:");
-                    colaC.EntregarImagenCliente(lstE);
-                }
-                
-                
-                
-                if(ImagenesCompletas2==true){
+                while (fin != true) {
+                     fin = lstV.IterarTodo();
+                     ImagenesCompletas2 = false;
+                     System.out.println("este es el fin"+ fin);
+                    
                     System.out.println("---------------------PASO " + contadorPasos + "-----------------------");
-                        lstV.SalidaCliente((z + 1), lstE, colaBW, colaC);
-                        Object prim2 = lstR.ObtenerPrimero();
-                        contadorPasos++;
-                        ImagenesCompletas=false;
+                    for (int z = 0; z < numeroservidores; z++) {
+
+                        ImagenesCompletas2 = lstV.tomarImagenCliente((z + 1));
+                        System.out.println("El cliente " + (z + 1) + "ya no tiene imagenes?  " + ImagenesCompletas2);
+                        if (colaBW.size > 0) {
+                            System.out.println("Imprimiendo BW:");
+                            colaBW.EntregarImagenCliente(lstE);
+                        }
+                        if (colaC.size > 0) {
+                            System.out.println("Imprimiendo Color:");
+                            colaC.EntregarImagenCliente(lstE);
+                        }
+
+                        if (ImagenesCompletas2 == true) {
+                            System.out.println("---------------------PASO " + contadorPasos + "-----------------------");
+                            lstV.SalidaCliente((z + 1), lstE, colaBW, colaC);
+                            Object prim2 = lstR.ObtenerPrimero();
+                            contadorPasos++;
+                            
+
+                            if (colaBW.size > 0) {
+                                System.out.println("Imprimiendo BW:");
+                                colaBW.EntregarImagenCliente(lstE);
+                            }
+
+                            System.out.println("---------------------PASO " + contadorPasos + "-----------------------");
+                            lstV.IngresoCliente(prim2);
+                            colaC.EntregarImagenCliente(lstE);
+                            contadorPasos++;
+                            
+                            
+                            if (colaBW.size > 0) {
+                                System.out.println("Imprimiendo BW:");
+                                colaBW.EntregarImagenCliente(lstE);
+                            }
+                            if (colaC.size > 0) {
+                                System.out.println("Imprimiendo Color:");
+                                colaC.EntregarImagenCliente(lstE);
+                            }
+
+                            
+                        }
+                        if (colaBW.size > 0) {
+                            System.out.println("Imprimiendo BW:");
+                            colaBW.EntregarImagenCliente(lstE);
+                        }
+                    }
+                    
+                    contadorPasos++;
+                    
                    
-                    
-                     if(colaBW.size >0){
-                        System.out.println("Imprimiendo BW:");    
-                        colaBW.EntregarImagenCliente(lstE);
-                        }
-                        
-                        System.out.println("---------------------PASO " + contadorPasos + "-----------------------");
-                        lstV.IngresoCliente(prim2);
-                        colaC.EntregarImagenCliente(lstE);
-                        contadorPasos++;
-                        if(colaBW.size >0){
-                        System.out.println("Imprimiendo BW:");    
-                        colaBW.EntregarImagenCliente(lstE);
-                        }
-                         if(colaC.size >0){
-                        System.out.println("Imprimiendo Color:"); 
-                        colaC.EntregarImagenCliente(lstE);
-                    }
-                        
-              
-                    
-                    
                 }
-                if(colaBW.size >0){
-                   System.out.println("Imprimiendo BW:");    
-                   colaBW.EntregarImagenCliente(lstE);
-                    }
-                
-            }
-            salida = lstV.RevisarCliente();
-            
-            contadorPasos++;
-            }
-                
-                
-                
-            }else{
-            System.out.println("Salida es diferente de 0");
-               
-            
-            }
-                 
-            
             break;
     }
     
@@ -481,24 +602,13 @@ public class Proyecto1_EDD {
                         break;
                     case 2:
                         System.out.println("Selecciono 2 esta en la funcion Ejecutar Pasos");
-                        //IngresarRandoms(lstRecepcion);
-                        /*System.out.println(lstRecepcion.ObtenerNodo(1));
-                        Object primercliente = lstRecepcion.ObtenerPrimero();
-                        Object segundocliente = lstRecepcion.ObtenerPrimero();
-                        lstVent.IngresoCliente(primercliente);
-                        lstVent.IngresoCliente(segundocliente);
-                        lstVent.SalidaCliente();
-                        lstVent.ProcesarImagenes("Ventanilla 2");
-                        
-                       */
+                  
                         System.out.println("Ingrese el paso que desea ejecutar: ");
                         String recibirpaso = entrada.nextLine();
                         int paso = Integer.parseInt(recibirpaso);
                         DesarrollarPasos(paso,lstRecepcion,lstVent,lstEspera,colaBW,colaC);
                         
-                        
-                        
-                        
+               
                         break;
                     case 3:
                         System.out.println("Selecciono 3 esta en la funcion Estado de memoria de las estructuras");
@@ -523,46 +633,34 @@ public class Proyecto1_EDD {
                         break;
                     case 4:
                         System.out.println("Selecciono 4 esta en la funcion Reportes");
-                        Lista_Circular le1 = new Lista_Circular();
-                        le1.ingresar(new Cliente("99","Brayan","4","5"));
-                        le1.ingresar(new Cliente("21","Alexander","7","2"));
-                        /*le1.ingresar(new Cliente("4","Pancha","8","1"));
-                        le1.ingresar(new Cliente("12","Rocky","3","4"));
-                        System.out.println("imprimir clientes");
-                        le1.mostrar();
-                        */
-                        //le1.Buscar("4");
-                       
+                        System.out.println("1. Top 5 clientes imagenes color");
+                        System.out.println("2. Top 5 clientes con menor imagenes en blanco y negro");
+                        System.out.println("3. Informmacion del cliente que mas estuvo en el sistema");
+                        System.out.println("4. Datos de un estudiante en espesifico");
                         
-                                                
-                        Cola_Color Co =new Cola_Color();
-                        Co.AgregarNodoInicio(new Imagen("Color","99",0));
-                        Co.AgregarNodoInicio(new Imagen("Color","21",0));
-                        Co.AgregarNodoInicio(new Imagen("Color","21",0));
-                        System.out.println("imprimir imagenes");
-                        Co.imprimir();
+                        System.out.println("Ingrese el numero:");
+                        String e4 = entrada.nextLine();
+                        int opcion = Integer.parseInt(e4);
+                        switch(opcion){
+                            case 1:
+                                 System.out.println("Lo sentimos estamos en fase de desarrollo :p");
+                                break;
+                            case 2:
+                                System.out.println("Lo sentimos estamos en fase de desarrollo :p");
+                                break;
+                            case 3:
+                                System.out.println("Lo sentimos estamos en fase de desarrollo :p");
+                                break;
+                            case 4:
+                                System.out.println("Ingrese el ID a buscar:");
+                                String e44 = entrada.nextLine();
+                                lstEspera.BuscarCliente(e44);
+                                break;
+                          
                         
-                        le1.ImprimirListadeListas();
-                        Co.EntregarImagenCliente(le1);
                         
-                       
-                        Co.EntregarImagenCliente(le1);
-                        Co.EntregarImagenCliente(le1);
-                      
-                        le1.ImprimirListadeListas();
-                        String Data = le1.Graficar();
-                        le1.CrearTxt(Data);
-                        le1.LLamarGraphviz();
-                                
-                        /*
-                        System.out.println("Lista de listas");
-                        le1.imprimirlistas();
-                        String a = le1.GraficarNodos();
-                        le1.CrearTxt(a);
-                        le1.LLamarGraphviz();
+                        }
                         
-                        */
-                  
                         
                         
                         break;

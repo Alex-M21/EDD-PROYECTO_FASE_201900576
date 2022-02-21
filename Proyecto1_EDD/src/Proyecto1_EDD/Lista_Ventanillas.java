@@ -27,27 +27,34 @@ public class Lista_Ventanillas {
         return (cabeza == null) ? true : false;
     }
     
-    public boolean IterarTodo(){
-     Nodo_Ventanillas temp = cabeza;
-     int contador = 0;
-     int tamaño = size;
-     boolean terminado = false;
-     
-     if(temp != null){
-     while(temp.getSiguiente()!= null){
-         if(temp.getArriba()==null){
-         contador++;
-         }
-         
-     temp = temp.getSiguiente();
-     }
-     if(contador==tamaño){
-     terminado = true;
-     }else{
-     terminado = false;
-     }
-     }
-    return terminado;
+    public boolean IterarTodo() {
+        Nodo_Ventanillas temp = cabeza;
+        int contador = 0;
+        int tamaño = size;
+        boolean terminado = false;
+
+        
+        while (temp.getSiguiente() != null) {
+            if (temp.getArriba() == null) {
+                contador++;
+            }
+            temp = temp.getSiguiente();
+        }
+       
+        if (temp.getSiguiente() == null) {
+            if (temp.getArriba() == null) {
+                contador++;
+            }
+        }
+        System.out.println("El contador llego a:" + contador + "/" + tamaño);
+        
+        if (contador == tamaño) {
+            terminado = true;
+        } else {
+            terminado = false;
+            //    }
+        }
+        return terminado;
     }
 
     public void AgregarNodoInicio(Object algo,int id) {

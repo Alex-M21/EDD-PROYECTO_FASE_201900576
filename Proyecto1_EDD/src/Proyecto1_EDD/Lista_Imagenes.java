@@ -57,6 +57,25 @@ public class Lista_Imagenes {
     
     }
     
+    public String retornarImagenesEspera(){
+    Nodo_Imagenes temp = cabeza;
+    String data = "";
+    if(cabeza != null){
+    
+    while (temp.getSiguiente() != null){
+    data =data+"-->"+((Imagen)temp.getElemento()).tipo; 
+    temp = temp.getSiguiente();
+    }
+    data =data+"-->"+((Imagen)temp.getElemento()).tipo;
+    
+    System.out.println(data);
+    }else{
+    
+    data = data + "La lista esta vacia";
+    }
+    return data;
+    }
+    
 
     public int tamaño() {
         return size;

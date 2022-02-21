@@ -72,6 +72,31 @@ public class Lista_Circular {
         }
 
     }
+    
+    public void BuscarCliente(String client){
+    Nodo_2 actual = new Nodo_2();
+        actual = primero;
+        boolean encontrado = false;
+        do {
+            //System.out.println(((Cliente)actual.datos).Nombre);
+            
+            int h = Integer.parseInt(((Cliente)actual.datos).getId());
+            int b = Integer.parseInt(client);
+            if (h == b) {
+                encontrado = true;
+                dato = "  El cliente es  "+((Cliente) actual.datos).Nombre+",  Su Id es:  "+((Cliente) actual.datos).id;
+                dato = dato +",  Sus datos imagenes son:"+ (actual.lstImg.retornarImagenesEspera());
+            }
+            actual = actual.siguiente;
+        } while (actual != primero);
+        if (encontrado == true) {
+            System.out.println("Se enconntro el cliente:"+dato);
+            
+        }else{
+        System.out.println("No se encontro el cliente");
+        }
+    
+    }
 
     public void BuscarAgregar(String buscar, Object agregar) {
         Nodo_2 actual = new Nodo_2();

@@ -6,8 +6,8 @@ Cliente2->Cliente1
 Cliente1->ImagenClient11
 ImagenClient11[label="Imagen Color11"];
 ImagenClient12[label="Imagen Color12"];
-ImagenClient13[label="Imagen BW13"];
-ImagenClient14[label="Imagen Color14"];
+ImagenClient13[label="Imagen Color13"];
+ImagenClient14[label="Imagen BW14"];
 ImagenClient15[label="Imagen BW15"];
 ImagenClient11->ImagenClient12
 ImagenClient12->ImagenClient13
@@ -18,24 +18,1060 @@ ImagenClient15->NuLLClient1
 Cliente3->Cliente2
 
 Cliente2->ImagenClient21
-ImagenClient21[label="Imagen BW21"];
-ImagenClient22[label="Imagen BW22"];
-ImagenClient23[label="Imagen Color23"];
-ImagenClient24[label="Imagen BW24"];
+ImagenClient21[label="Imagen BW31"];
+ImagenClient22[label="Imagen BW32"];
+ImagenClient23[label="Imagen BW33"];
 ImagenClient21->ImagenClient22
 ImagenClient22->ImagenClient23
-ImagenClient23->ImagenClient24
-ImagenClient24->NuLLClient2 
- 
+ImagenClient23->NuLLClient2 
+ Cliente3->Cliente4
+Cliente4->Cliente3
+
 Cliente3->ImagenClient31
-ImagenClient31[label="Imagen BW21"];
-ImagenClient32[label="Imagen BW22"];
-ImagenClient33[label="Imagen Color23"];
-ImagenClient34[label="Imagen BW24"];
+ImagenClient31[label="Imagen BW31"];
+ImagenClient32[label="Imagen BW32"];
+ImagenClient33[label="Imagen BW33"];
 ImagenClient31->ImagenClient32
 ImagenClient32->ImagenClient33
-ImagenClient33->ImagenClient34
-ImagenClient34->NuLLClient3 
- Cliente1 ->Cliente3
-Cliente3->Cliente1 
+ImagenClient33->NuLLClient3 
+ Cliente4->Cliente5
+Cliente5->Cliente4
+
+Cliente4->ImagenClient41
+ImagenClient41[label="Imagen Color61"];
+ImagenClient41->NuLLClient4 
+ Cliente5->Cliente6
+Cliente6->Cliente5
+
+Cliente5->ImagenClient51
+ImagenClient51[label="Imagen Color61"];
+ImagenClient51->NuLLClient5 
+ Cliente6->Cliente7
+Cliente7->Cliente6
+
+Cliente6->ImagenClient61
+ImagenClient61[label="Imagen BW51"];
+ImagenClient62[label="Imagen BW52"];
+ImagenClient63[label="Imagen BW53"];
+ImagenClient64[label="Imagen Color54"];
+ImagenClient65[label="Imagen BW55"];
+ImagenClient61->ImagenClient62
+ImagenClient62->ImagenClient63
+ImagenClient63->ImagenClient64
+ImagenClient64->ImagenClient65
+ImagenClient65->NuLLClient6 
+ Cliente7->Cliente8
+Cliente8->Cliente7
+
+Cliente7->ImagenClient71
+ImagenClient71[label="Imagen BW51"];
+ImagenClient72[label="Imagen BW52"];
+ImagenClient73[label="Imagen BW53"];
+ImagenClient74[label="Imagen Color54"];
+ImagenClient75[label="Imagen BW55"];
+ImagenClient71->ImagenClient72
+ImagenClient72->ImagenClient73
+ImagenClient73->ImagenClient74
+ImagenClient74->ImagenClient75
+ImagenClient75->NuLLClient7 
+ Cliente8->Cliente9
+Cliente9->Cliente8
+
+Cliente8->ImagenClient81
+ImagenClient81[label="Imagen BW41"];
+ImagenClient82[label="Imagen BW42"];
+ImagenClient83[label="Imagen Color43"];
+ImagenClient84[label="Imagen BW44"];
+ImagenClient81->ImagenClient82
+ImagenClient82->ImagenClient83
+ImagenClient83->ImagenClient84
+ImagenClient84->NuLLClient8 
+ Cliente9->Cliente10
+Cliente10->Cliente9
+
+Cliente9->ImagenClient91
+ImagenClient91[label="Imagen BW41"];
+ImagenClient92[label="Imagen BW42"];
+ImagenClient93[label="Imagen Color43"];
+ImagenClient94[label="Imagen BW44"];
+ImagenClient91->ImagenClient92
+ImagenClient92->ImagenClient93
+ImagenClient93->ImagenClient94
+ImagenClient94->NuLLClient9 
+ Cliente10->Cliente11
+Cliente11->Cliente10
+
+Cliente10->ImagenClient101
+ImagenClient101[label="Imagen Color81"];
+ImagenClient102[label="Imagen Color82"];
+ImagenClient103[label="Imagen BW83"];
+ImagenClient104[label="Imagen Color84"];
+ImagenClient105[label="Imagen BW85"];
+ImagenClient101->ImagenClient102
+ImagenClient102->ImagenClient103
+ImagenClient103->ImagenClient104
+ImagenClient104->ImagenClient105
+ImagenClient105->NuLLClient10 
+ Cliente11->Cliente12
+Cliente12->Cliente11
+
+Cliente11->ImagenClient111
+ImagenClient111[label="Imagen Color81"];
+ImagenClient112[label="Imagen Color82"];
+ImagenClient113[label="Imagen BW83"];
+ImagenClient114[label="Imagen Color84"];
+ImagenClient115[label="Imagen BW85"];
+ImagenClient111->ImagenClient112
+ImagenClient112->ImagenClient113
+ImagenClient113->ImagenClient114
+ImagenClient114->ImagenClient115
+ImagenClient115->NuLLClient11 
+ Cliente12->Cliente13
+Cliente13->Cliente12
+
+Cliente12->NuLL 
+Cliente13->Cliente14
+Cliente14->Cliente13
+
+Cliente13->NuLL 
+Cliente14->Cliente15
+Cliente15->Cliente14
+
+Cliente14->ImagenClient141
+ImagenClient141[label="Imagen Color91"];
+ImagenClient142[label="Imagen BW92"];
+ImagenClient141->ImagenClient142
+ImagenClient142->NuLLClient14 
+ Cliente15->Cliente16
+Cliente16->Cliente15
+
+Cliente15->ImagenClient151
+ImagenClient151[label="Imagen Color91"];
+ImagenClient152[label="Imagen BW92"];
+ImagenClient151->ImagenClient152
+ImagenClient152->NuLLClient15 
+ Cliente16->Cliente17
+Cliente17->Cliente16
+
+Cliente16->ImagenClient161
+ImagenClient161[label="Imagen BW21"];
+ImagenClient162[label="Imagen BW22"];
+ImagenClient163[label="Imagen BW23"];
+ImagenClient164[label="Imagen Color24"];
+ImagenClient165[label="Imagen BW25"];
+ImagenClient161->ImagenClient162
+ImagenClient162->ImagenClient163
+ImagenClient163->ImagenClient164
+ImagenClient164->ImagenClient165
+ImagenClient165->NuLLClient16 
+ Cliente17->Cliente18
+Cliente18->Cliente17
+
+Cliente17->ImagenClient171
+ImagenClient171[label="Imagen Color71"];
+ImagenClient172[label="Imagen BW72"];
+ImagenClient173[label="Imagen BW73"];
+ImagenClient174[label="Imagen Color74"];
+ImagenClient175[label="Imagen BW75"];
+ImagenClient176[label="Imagen Color76"];
+ImagenClient177[label="Imagen BW77"];
+ImagenClient171->ImagenClient172
+ImagenClient172->ImagenClient173
+ImagenClient173->ImagenClient174
+ImagenClient174->ImagenClient175
+ImagenClient175->ImagenClient176
+ImagenClient176->ImagenClient177
+ImagenClient177->NuLLClient17 
+ Cliente18->Cliente19
+Cliente19->Cliente18
+
+Cliente18->ImagenClient181
+ImagenClient181[label="Imagen Color71"];
+ImagenClient182[label="Imagen BW72"];
+ImagenClient183[label="Imagen BW73"];
+ImagenClient184[label="Imagen Color74"];
+ImagenClient185[label="Imagen BW75"];
+ImagenClient186[label="Imagen Color76"];
+ImagenClient187[label="Imagen BW77"];
+ImagenClient181->ImagenClient182
+ImagenClient182->ImagenClient183
+ImagenClient183->ImagenClient184
+ImagenClient184->ImagenClient185
+ImagenClient185->ImagenClient186
+ImagenClient186->ImagenClient187
+ImagenClient187->NuLLClient18 
+ Cliente19->Cliente20
+Cliente20->Cliente19
+
+Cliente19->NuLL 
+Cliente20->Cliente21
+Cliente21->Cliente20
+
+Cliente20->NuLL 
+Cliente21->Cliente22
+Cliente22->Cliente21
+
+Cliente21->ImagenClient211
+ImagenClient211[label="Imagen Color121"];
+ImagenClient212[label="Imagen Color122"];
+ImagenClient213[label="Imagen Color123"];
+ImagenClient211->ImagenClient212
+ImagenClient212->ImagenClient213
+ImagenClient213->NuLLClient21 
+ Cliente22->Cliente23
+Cliente23->Cliente22
+
+Cliente22->ImagenClient221
+ImagenClient221[label="Imagen Color121"];
+ImagenClient222[label="Imagen Color122"];
+ImagenClient223[label="Imagen Color123"];
+ImagenClient221->ImagenClient222
+ImagenClient222->ImagenClient223
+ImagenClient223->NuLLClient22 
+ Cliente23->Cliente24
+Cliente24->Cliente23
+
+Cliente23->ImagenClient231
+ImagenClient231[label="Imagen BW131"];
+ImagenClient232[label="Imagen BW132"];
+ImagenClient233[label="Imagen BW133"];
+ImagenClient234[label="Imagen BW134"];
+ImagenClient231->ImagenClient232
+ImagenClient232->ImagenClient233
+ImagenClient233->ImagenClient234
+ImagenClient234->NuLLClient23 
+ Cliente24->Cliente25
+Cliente25->Cliente24
+
+Cliente24->ImagenClient241
+ImagenClient241[label="Imagen BW131"];
+ImagenClient242[label="Imagen BW132"];
+ImagenClient243[label="Imagen BW133"];
+ImagenClient244[label="Imagen BW134"];
+ImagenClient241->ImagenClient242
+ImagenClient242->ImagenClient243
+ImagenClient243->ImagenClient244
+ImagenClient244->NuLLClient24 
+ Cliente25->Cliente26
+Cliente26->Cliente25
+
+Cliente25->ImagenClient251
+ImagenClient251[label="Imagen BW161"];
+ImagenClient251->NuLLClient25 
+ Cliente26->Cliente27
+Cliente27->Cliente26
+
+Cliente26->ImagenClient261
+ImagenClient261[label="Imagen BW161"];
+ImagenClient261->NuLLClient26 
+ Cliente27->Cliente28
+Cliente28->Cliente27
+
+Cliente27->ImagenClient271
+ImagenClient271[label="Imagen BW111"];
+ImagenClient272[label="Imagen BW112"];
+ImagenClient273[label="Imagen BW113"];
+ImagenClient274[label="Imagen Color114"];
+ImagenClient275[label="Imagen BW115"];
+ImagenClient271->ImagenClient272
+ImagenClient272->ImagenClient273
+ImagenClient273->ImagenClient274
+ImagenClient274->ImagenClient275
+ImagenClient275->NuLLClient27 
+ Cliente28->Cliente29
+Cliente29->Cliente28
+
+Cliente28->ImagenClient281
+ImagenClient281[label="Imagen BW111"];
+ImagenClient282[label="Imagen BW112"];
+ImagenClient283[label="Imagen BW113"];
+ImagenClient284[label="Imagen Color114"];
+ImagenClient285[label="Imagen BW115"];
+ImagenClient281->ImagenClient282
+ImagenClient282->ImagenClient283
+ImagenClient283->ImagenClient284
+ImagenClient284->ImagenClient285
+ImagenClient285->NuLLClient28 
+ Cliente29->Cliente30
+Cliente30->Cliente29
+
+Cliente29->ImagenClient291
+ImagenClient291[label="Imagen Color141"];
+ImagenClient292[label="Imagen Color142"];
+ImagenClient293[label="Imagen BW143"];
+ImagenClient294[label="Imagen Color144"];
+ImagenClient295[label="Imagen BW145"];
+ImagenClient291->ImagenClient292
+ImagenClient292->ImagenClient293
+ImagenClient293->ImagenClient294
+ImagenClient294->ImagenClient295
+ImagenClient295->NuLLClient29 
+ Cliente30->Cliente31
+Cliente31->Cliente30
+
+Cliente30->ImagenClient301
+ImagenClient301[label="Imagen Color181"];
+ImagenClient302[label="Imagen Color182"];
+ImagenClient303[label="Imagen Color183"];
+ImagenClient301->ImagenClient302
+ImagenClient302->ImagenClient303
+ImagenClient303->NuLLClient30 
+ Cliente31->Cliente32
+Cliente32->Cliente31
+
+Cliente31->ImagenClient311
+ImagenClient311[label="Imagen Color181"];
+ImagenClient312[label="Imagen Color182"];
+ImagenClient313[label="Imagen Color183"];
+ImagenClient311->ImagenClient312
+ImagenClient312->ImagenClient313
+ImagenClient313->NuLLClient31 
+ Cliente32->Cliente33
+Cliente33->Cliente32
+
+Cliente32->ImagenClient321
+ImagenClient321[label="Imagen Color191"];
+ImagenClient322[label="Imagen Color192"];
+ImagenClient323[label="Imagen Color193"];
+ImagenClient324[label="Imagen BW194"];
+ImagenClient321->ImagenClient322
+ImagenClient322->ImagenClient323
+ImagenClient323->ImagenClient324
+ImagenClient324->NuLLClient32 
+ Cliente33->Cliente34
+Cliente34->Cliente33
+
+Cliente33->ImagenClient331
+ImagenClient331[label="Imagen Color191"];
+ImagenClient332[label="Imagen Color192"];
+ImagenClient333[label="Imagen Color193"];
+ImagenClient334[label="Imagen BW194"];
+ImagenClient331->ImagenClient332
+ImagenClient332->ImagenClient333
+ImagenClient333->ImagenClient334
+ImagenClient334->NuLLClient33 
+ Cliente34->Cliente35
+Cliente35->Cliente34
+
+Cliente34->ImagenClient341
+ImagenClient341[label="Imagen Color201"];
+ImagenClient342[label="Imagen Color202"];
+ImagenClient343[label="Imagen BW203"];
+ImagenClient344[label="Imagen Color204"];
+ImagenClient345[label="Imagen BW205"];
+ImagenClient341->ImagenClient342
+ImagenClient342->ImagenClient343
+ImagenClient343->ImagenClient344
+ImagenClient344->ImagenClient345
+ImagenClient345->NuLLClient34 
+ Cliente35->Cliente36
+Cliente36->Cliente35
+
+Cliente35->ImagenClient351
+ImagenClient351[label="Imagen Color201"];
+ImagenClient352[label="Imagen Color202"];
+ImagenClient353[label="Imagen BW203"];
+ImagenClient354[label="Imagen Color204"];
+ImagenClient355[label="Imagen BW205"];
+ImagenClient351->ImagenClient352
+ImagenClient352->ImagenClient353
+ImagenClient353->ImagenClient354
+ImagenClient354->ImagenClient355
+ImagenClient355->NuLLClient35 
+ Cliente36->Cliente37
+Cliente37->Cliente36
+
+Cliente36->ImagenClient361
+ImagenClient361[label="Imagen Color171"];
+ImagenClient362[label="Imagen BW172"];
+ImagenClient363[label="Imagen BW173"];
+ImagenClient364[label="Imagen Color174"];
+ImagenClient365[label="Imagen BW175"];
+ImagenClient366[label="Imagen Color176"];
+ImagenClient367[label="Imagen BW177"];
+ImagenClient361->ImagenClient362
+ImagenClient362->ImagenClient363
+ImagenClient363->ImagenClient364
+ImagenClient364->ImagenClient365
+ImagenClient365->ImagenClient366
+ImagenClient366->ImagenClient367
+ImagenClient367->NuLLClient36 
+ Cliente37->Cliente38
+Cliente38->Cliente37
+
+Cliente37->ImagenClient371
+ImagenClient371[label="Imagen Color171"];
+ImagenClient372[label="Imagen BW172"];
+ImagenClient373[label="Imagen BW173"];
+ImagenClient374[label="Imagen Color174"];
+ImagenClient375[label="Imagen BW175"];
+ImagenClient376[label="Imagen Color176"];
+ImagenClient377[label="Imagen BW177"];
+ImagenClient371->ImagenClient372
+ImagenClient372->ImagenClient373
+ImagenClient373->ImagenClient374
+ImagenClient374->ImagenClient375
+ImagenClient375->ImagenClient376
+ImagenClient376->ImagenClient377
+ImagenClient377->NuLLClient37 
+ Cliente38->Cliente39
+Cliente39->Cliente38
+
+Cliente38->ImagenClient381
+ImagenClient381[label="Imagen BW231"];
+ImagenClient381->NuLLClient38 
+ Cliente39->Cliente40
+Cliente40->Cliente39
+
+Cliente39->ImagenClient391
+ImagenClient391[label="Imagen BW231"];
+ImagenClient391->NuLLClient39 
+ Cliente40->Cliente41
+Cliente41->Cliente40
+
+Cliente40->NuLL 
+Cliente41->Cliente42
+Cliente42->Cliente41
+
+Cliente41->NuLL 
+Cliente42->Cliente43
+Cliente43->Cliente42
+
+Cliente42->ImagenClient421
+ImagenClient421[label="Imagen Color211"];
+ImagenClient422[label="Imagen Color212"];
+ImagenClient423[label="Imagen Color213"];
+ImagenClient424[label="Imagen BW214"];
+ImagenClient425[label="Imagen Color215"];
+ImagenClient426[label="Imagen BW216"];
+ImagenClient421->ImagenClient422
+ImagenClient422->ImagenClient423
+ImagenClient423->ImagenClient424
+ImagenClient424->ImagenClient425
+ImagenClient425->ImagenClient426
+ImagenClient426->NuLLClient42 
+ Cliente43->Cliente44
+Cliente44->Cliente43
+
+Cliente43->ImagenClient431
+ImagenClient431[label="Imagen Color221"];
+ImagenClient432[label="Imagen Color222"];
+ImagenClient433[label="Imagen Color223"];
+ImagenClient434[label="Imagen BW224"];
+ImagenClient431->ImagenClient432
+ImagenClient432->ImagenClient433
+ImagenClient433->ImagenClient434
+ImagenClient434->NuLLClient43 
+ Cliente44->Cliente45
+Cliente45->Cliente44
+
+Cliente44->ImagenClient441
+ImagenClient441[label="Imagen Color221"];
+ImagenClient442[label="Imagen Color222"];
+ImagenClient443[label="Imagen Color223"];
+ImagenClient444[label="Imagen BW224"];
+ImagenClient441->ImagenClient442
+ImagenClient442->ImagenClient443
+ImagenClient443->ImagenClient444
+ImagenClient444->NuLLClient44 
+ Cliente45->Cliente46
+Cliente46->Cliente45
+
+Cliente45->ImagenClient451
+ImagenClient451[label="Imagen BW261"];
+ImagenClient451->NuLLClient45 
+ Cliente46->Cliente47
+Cliente47->Cliente46
+
+Cliente46->ImagenClient461
+ImagenClient461[label="Imagen BW261"];
+ImagenClient461->NuLLClient46 
+ Cliente47->Cliente48
+Cliente48->Cliente47
+
+Cliente47->ImagenClient471
+ImagenClient471[label="Imagen Color271"];
+ImagenClient472[label="Imagen BW272"];
+ImagenClient471->ImagenClient472
+ImagenClient472->NuLLClient47 
+ Cliente48->Cliente49
+Cliente49->Cliente48
+
+Cliente48->ImagenClient481
+ImagenClient481[label="Imagen Color271"];
+ImagenClient482[label="Imagen BW272"];
+ImagenClient481->ImagenClient482
+ImagenClient482->NuLLClient48 
+ Cliente49->Cliente50
+Cliente50->Cliente49
+
+Cliente49->ImagenClient491
+ImagenClient491[label="Imagen Color241"];
+ImagenClient492[label="Imagen Color242"];
+ImagenClient493[label="Imagen BW243"];
+ImagenClient494[label="Imagen Color244"];
+ImagenClient495[label="Imagen BW245"];
+ImagenClient491->ImagenClient492
+ImagenClient492->ImagenClient493
+ImagenClient493->ImagenClient494
+ImagenClient494->ImagenClient495
+ImagenClient495->NuLLClient49 
+ Cliente50->Cliente51
+Cliente51->Cliente50
+
+Cliente50->ImagenClient501
+ImagenClient501[label="Imagen Color241"];
+ImagenClient502[label="Imagen Color242"];
+ImagenClient503[label="Imagen BW243"];
+ImagenClient504[label="Imagen Color244"];
+ImagenClient505[label="Imagen BW245"];
+ImagenClient501->ImagenClient502
+ImagenClient502->ImagenClient503
+ImagenClient503->ImagenClient504
+ImagenClient504->ImagenClient505
+ImagenClient505->NuLLClient50 
+ Cliente51->Cliente52
+Cliente52->Cliente51
+
+Cliente51->ImagenClient511
+ImagenClient511[label="Imagen Color281"];
+ImagenClient512[label="Imagen Color282"];
+ImagenClient513[label="Imagen Color283"];
+ImagenClient511->ImagenClient512
+ImagenClient512->ImagenClient513
+ImagenClient513->NuLLClient51 
+ Cliente52->Cliente53
+Cliente53->Cliente52
+
+Cliente52->ImagenClient521
+ImagenClient521[label="Imagen BW291"];
+ImagenClient522[label="Imagen BW292"];
+ImagenClient523[label="Imagen BW293"];
+ImagenClient524[label="Imagen BW294"];
+ImagenClient521->ImagenClient522
+ImagenClient522->ImagenClient523
+ImagenClient523->ImagenClient524
+ImagenClient524->NuLLClient52 
+ Cliente53->Cliente54
+Cliente54->Cliente53
+
+Cliente53->ImagenClient531
+ImagenClient531[label="Imagen BW291"];
+ImagenClient532[label="Imagen BW292"];
+ImagenClient533[label="Imagen BW293"];
+ImagenClient534[label="Imagen BW294"];
+ImagenClient531->ImagenClient532
+ImagenClient532->ImagenClient533
+ImagenClient533->ImagenClient534
+ImagenClient534->NuLLClient53 
+ Cliente54->Cliente55
+Cliente55->Cliente54
+
+Cliente54->ImagenClient541
+ImagenClient541[label="Imagen BW301"];
+ImagenClient542[label="Imagen BW302"];
+ImagenClient543[label="Imagen BW303"];
+ImagenClient544[label="Imagen BW304"];
+ImagenClient541->ImagenClient542
+ImagenClient542->ImagenClient543
+ImagenClient543->ImagenClient544
+ImagenClient544->NuLLClient54 
+ Cliente55->Cliente56
+Cliente56->Cliente55
+
+Cliente55->ImagenClient551
+ImagenClient551[label="Imagen BW301"];
+ImagenClient552[label="Imagen BW302"];
+ImagenClient553[label="Imagen BW303"];
+ImagenClient554[label="Imagen BW304"];
+ImagenClient551->ImagenClient552
+ImagenClient552->ImagenClient553
+ImagenClient553->ImagenClient554
+ImagenClient554->NuLLClient55 
+ Cliente56->Cliente57
+Cliente57->Cliente56
+
+Cliente56->ImagenClient561
+ImagenClient561[label="Imagen Color321"];
+ImagenClient562[label="Imagen Color322"];
+ImagenClient563[label="Imagen BW323"];
+ImagenClient561->ImagenClient562
+ImagenClient562->ImagenClient563
+ImagenClient563->NuLLClient56 
+ Cliente57->Cliente58
+Cliente58->Cliente57
+
+Cliente57->ImagenClient571
+ImagenClient571[label="Imagen Color321"];
+ImagenClient572[label="Imagen Color322"];
+ImagenClient573[label="Imagen BW323"];
+ImagenClient571->ImagenClient572
+ImagenClient572->ImagenClient573
+ImagenClient573->NuLLClient57 
+ Cliente58->Cliente59
+Cliente59->Cliente58
+
+Cliente58->ImagenClient581
+ImagenClient581[label="Imagen BW331"];
+ImagenClient582[label="Imagen BW332"];
+ImagenClient583[label="Imagen BW333"];
+ImagenClient584[label="Imagen BW334"];
+ImagenClient581->ImagenClient582
+ImagenClient582->ImagenClient583
+ImagenClient583->ImagenClient584
+ImagenClient584->NuLLClient58 
+ Cliente59->Cliente60
+Cliente60->Cliente59
+
+Cliente59->ImagenClient591
+ImagenClient591[label="Imagen Color311"];
+ImagenClient592[label="Imagen Color312"];
+ImagenClient593[label="Imagen Color313"];
+ImagenClient594[label="Imagen BW314"];
+ImagenClient595[label="Imagen Color315"];
+ImagenClient596[label="Imagen BW316"];
+ImagenClient591->ImagenClient592
+ImagenClient592->ImagenClient593
+ImagenClient593->ImagenClient594
+ImagenClient594->ImagenClient595
+ImagenClient595->ImagenClient596
+ImagenClient596->NuLLClient59 
+ Cliente60->Cliente61
+Cliente61->Cliente60
+
+Cliente60->ImagenClient601
+ImagenClient601[label="Imagen Color311"];
+ImagenClient602[label="Imagen Color312"];
+ImagenClient603[label="Imagen Color313"];
+ImagenClient604[label="Imagen BW314"];
+ImagenClient605[label="Imagen Color315"];
+ImagenClient606[label="Imagen BW316"];
+ImagenClient601->ImagenClient602
+ImagenClient602->ImagenClient603
+ImagenClient603->ImagenClient604
+ImagenClient604->ImagenClient605
+ImagenClient605->ImagenClient606
+ImagenClient606->NuLLClient60 
+ Cliente61->Cliente62
+Cliente62->Cliente61
+
+Cliente61->ImagenClient611
+ImagenClient611[label="Imagen Color361"];
+ImagenClient611->NuLLClient61 
+ Cliente62->Cliente63
+Cliente63->Cliente62
+
+Cliente62->ImagenClient621
+ImagenClient621[label="Imagen Color361"];
+ImagenClient621->NuLLClient62 
+ Cliente63->Cliente64
+Cliente64->Cliente63
+
+Cliente63->ImagenClient631
+ImagenClient631[label="Imagen Color381"];
+ImagenClient632[label="Imagen Color382"];
+ImagenClient631->ImagenClient632
+ImagenClient632->NuLLClient63 
+ Cliente64->Cliente65
+Cliente65->Cliente64
+
+Cliente64->ImagenClient641
+ImagenClient641[label="Imagen Color381"];
+ImagenClient642[label="Imagen Color382"];
+ImagenClient641->ImagenClient642
+ImagenClient642->NuLLClient64 
+ Cliente65->Cliente66
+Cliente66->Cliente65
+
+Cliente65->ImagenClient651
+ImagenClient651[label="Imagen Color341"];
+ImagenClient652[label="Imagen Color342"];
+ImagenClient653[label="Imagen Color343"];
+ImagenClient654[label="Imagen BW344"];
+ImagenClient655[label="Imagen Color345"];
+ImagenClient656[label="Imagen BW346"];
+ImagenClient651->ImagenClient652
+ImagenClient652->ImagenClient653
+ImagenClient653->ImagenClient654
+ImagenClient654->ImagenClient655
+ImagenClient655->ImagenClient656
+ImagenClient656->NuLLClient65 
+ Cliente66->Cliente67
+Cliente67->Cliente66
+
+Cliente66->ImagenClient661
+ImagenClient661[label="Imagen Color341"];
+ImagenClient662[label="Imagen Color342"];
+ImagenClient663[label="Imagen Color343"];
+ImagenClient664[label="Imagen BW344"];
+ImagenClient665[label="Imagen Color345"];
+ImagenClient666[label="Imagen BW346"];
+ImagenClient661->ImagenClient662
+ImagenClient662->ImagenClient663
+ImagenClient663->ImagenClient664
+ImagenClient664->ImagenClient665
+ImagenClient665->ImagenClient666
+ImagenClient666->NuLLClient66 
+ Cliente67->Cliente68
+Cliente68->Cliente67
+
+Cliente67->ImagenClient671
+ImagenClient671[label="Imagen Color351"];
+ImagenClient672[label="Imagen Color352"];
+ImagenClient673[label="Imagen Color353"];
+ImagenClient674[label="Imagen Color354"];
+ImagenClient675[label="Imagen BW355"];
+ImagenClient676[label="Imagen BW356"];
+ImagenClient671->ImagenClient672
+ImagenClient672->ImagenClient673
+ImagenClient673->ImagenClient674
+ImagenClient674->ImagenClient675
+ImagenClient675->ImagenClient676
+ImagenClient676->NuLLClient67 
+ Cliente68->Cliente69
+Cliente69->Cliente68
+
+Cliente68->ImagenClient681
+ImagenClient681[label="Imagen Color351"];
+ImagenClient682[label="Imagen Color352"];
+ImagenClient683[label="Imagen Color353"];
+ImagenClient684[label="Imagen Color354"];
+ImagenClient685[label="Imagen BW355"];
+ImagenClient686[label="Imagen BW356"];
+ImagenClient681->ImagenClient682
+ImagenClient682->ImagenClient683
+ImagenClient683->ImagenClient684
+ImagenClient684->ImagenClient685
+ImagenClient685->ImagenClient686
+ImagenClient686->NuLLClient68 
+ Cliente69->Cliente70
+Cliente70->Cliente69
+
+Cliente69->ImagenClient691
+ImagenClient691[label="Imagen Color391"];
+ImagenClient692[label="Imagen BW392"];
+ImagenClient691->ImagenClient692
+ImagenClient692->NuLLClient69 
+ Cliente70->Cliente71
+Cliente71->Cliente70
+
+Cliente70->ImagenClient701
+ImagenClient701[label="Imagen Color391"];
+ImagenClient702[label="Imagen BW392"];
+ImagenClient701->ImagenClient702
+ImagenClient702->NuLLClient70 
+ Cliente71->Cliente72
+Cliente72->Cliente71
+
+Cliente71->ImagenClient711
+ImagenClient711[label="Imagen BW371"];
+ImagenClient712[label="Imagen BW372"];
+ImagenClient713[label="Imagen BW373"];
+ImagenClient714[label="Imagen Color374"];
+ImagenClient715[label="Imagen BW375"];
+ImagenClient711->ImagenClient712
+ImagenClient712->ImagenClient713
+ImagenClient713->ImagenClient714
+ImagenClient714->ImagenClient715
+ImagenClient715->NuLLClient71 
+ Cliente72->Cliente73
+Cliente73->Cliente72
+
+Cliente72->ImagenClient721
+ImagenClient721[label="Imagen Color431"];
+ImagenClient722[label="Imagen BW432"];
+ImagenClient721->ImagenClient722
+ImagenClient722->NuLLClient72 
+ Cliente73->Cliente74
+Cliente74->Cliente73
+
+Cliente73->ImagenClient731
+ImagenClient731[label="Imagen Color431"];
+ImagenClient732[label="Imagen BW432"];
+ImagenClient731->ImagenClient732
+ImagenClient732->NuLLClient73 
+ Cliente74->Cliente75
+Cliente75->Cliente74
+
+Cliente74->ImagenClient741
+ImagenClient741[label="Imagen Color421"];
+ImagenClient742[label="Imagen Color422"];
+ImagenClient743[label="Imagen Color423"];
+ImagenClient741->ImagenClient742
+ImagenClient742->ImagenClient743
+ImagenClient743->NuLLClient74 
+ Cliente75->Cliente76
+Cliente76->Cliente75
+
+Cliente75->ImagenClient751
+ImagenClient751[label="Imagen Color421"];
+ImagenClient752[label="Imagen Color422"];
+ImagenClient753[label="Imagen Color423"];
+ImagenClient751->ImagenClient752
+ImagenClient752->ImagenClient753
+ImagenClient753->NuLLClient75 
+ Cliente76->Cliente77
+Cliente77->Cliente76
+
+Cliente76->ImagenClient761
+ImagenClient761[label="Imagen Color451"];
+ImagenClient761->NuLLClient76 
+ Cliente77->Cliente78
+Cliente78->Cliente77
+
+Cliente77->ImagenClient771
+ImagenClient771[label="Imagen Color451"];
+ImagenClient771->NuLLClient77 
+ Cliente78->Cliente79
+Cliente79->Cliente78
+
+Cliente78->ImagenClient781
+ImagenClient781[label="Imagen Color441"];
+ImagenClient782[label="Imagen Color442"];
+ImagenClient781->ImagenClient782
+ImagenClient782->NuLLClient78 
+ Cliente79->Cliente80
+Cliente80->Cliente79
+
+Cliente79->ImagenClient791
+ImagenClient791[label="Imagen BW411"];
+ImagenClient792[label="Imagen Color412"];
+ImagenClient793[label="Imagen BW413"];
+ImagenClient794[label="Imagen Color414"];
+ImagenClient795[label="Imagen BW415"];
+ImagenClient791->ImagenClient792
+ImagenClient792->ImagenClient793
+ImagenClient793->ImagenClient794
+ImagenClient794->ImagenClient795
+ImagenClient795->NuLLClient79 
+ Cliente80->Cliente81
+Cliente81->Cliente80
+
+Cliente80->ImagenClient801
+ImagenClient801[label="Imagen BW411"];
+ImagenClient802[label="Imagen Color412"];
+ImagenClient803[label="Imagen BW413"];
+ImagenClient804[label="Imagen Color414"];
+ImagenClient805[label="Imagen BW415"];
+ImagenClient801->ImagenClient802
+ImagenClient802->ImagenClient803
+ImagenClient803->ImagenClient804
+ImagenClient804->ImagenClient805
+ImagenClient805->NuLLClient80 
+ Cliente81->Cliente82
+Cliente82->Cliente81
+
+Cliente81->ImagenClient811
+ImagenClient811[label="Imagen Color401"];
+ImagenClient812[label="Imagen Color402"];
+ImagenClient813[label="Imagen BW403"];
+ImagenClient814[label="Imagen Color404"];
+ImagenClient815[label="Imagen BW405"];
+ImagenClient816[label="Imagen Color406"];
+ImagenClient817[label="Imagen BW407"];
+ImagenClient811->ImagenClient812
+ImagenClient812->ImagenClient813
+ImagenClient813->ImagenClient814
+ImagenClient814->ImagenClient815
+ImagenClient815->ImagenClient816
+ImagenClient816->ImagenClient817
+ImagenClient817->NuLLClient81 
+ Cliente82->Cliente83
+Cliente83->Cliente82
+
+Cliente82->ImagenClient821
+ImagenClient821[label="Imagen Color401"];
+ImagenClient822[label="Imagen Color402"];
+ImagenClient823[label="Imagen BW403"];
+ImagenClient824[label="Imagen Color404"];
+ImagenClient825[label="Imagen BW405"];
+ImagenClient826[label="Imagen Color406"];
+ImagenClient827[label="Imagen BW407"];
+ImagenClient821->ImagenClient822
+ImagenClient822->ImagenClient823
+ImagenClient823->ImagenClient824
+ImagenClient824->ImagenClient825
+ImagenClient825->ImagenClient826
+ImagenClient826->ImagenClient827
+ImagenClient827->NuLLClient82 
+ Cliente83->Cliente84
+Cliente84->Cliente83
+
+Cliente83->ImagenClient831
+ImagenClient831[label="Imagen Color461"];
+ImagenClient832[label="Imagen Color462"];
+ImagenClient833[label="Imagen Color463"];
+ImagenClient831->ImagenClient832
+ImagenClient832->ImagenClient833
+ImagenClient833->NuLLClient83 
+ Cliente84->Cliente85
+Cliente85->Cliente84
+
+Cliente84->ImagenClient841
+ImagenClient841[label="Imagen Color461"];
+ImagenClient842[label="Imagen Color462"];
+ImagenClient843[label="Imagen Color463"];
+ImagenClient841->ImagenClient842
+ImagenClient842->ImagenClient843
+ImagenClient843->NuLLClient84 
+ Cliente85->Cliente86
+Cliente86->Cliente85
+
+Cliente85->ImagenClient851
+ImagenClient851[label="Imagen Color491"];
+ImagenClient852[label="Imagen Color492"];
+ImagenClient851->ImagenClient852
+ImagenClient852->NuLLClient85 
+ Cliente86->Cliente87
+Cliente87->Cliente86
+
+Cliente86->ImagenClient861
+ImagenClient861[label="Imagen Color491"];
+ImagenClient862[label="Imagen Color492"];
+ImagenClient861->ImagenClient862
+ImagenClient862->NuLLClient86 
+ Cliente87->Cliente88
+Cliente88->Cliente87
+
+Cliente87->ImagenClient871
+ImagenClient871[label="Imagen Color471"];
+ImagenClient872[label="Imagen Color472"];
+ImagenClient873[label="Imagen BW473"];
+ImagenClient874[label="Imagen Color474"];
+ImagenClient875[label="Imagen BW475"];
+ImagenClient871->ImagenClient872
+ImagenClient872->ImagenClient873
+ImagenClient873->ImagenClient874
+ImagenClient874->ImagenClient875
+ImagenClient875->NuLLClient87 
+ Cliente88->Cliente89
+Cliente89->Cliente88
+
+Cliente88->ImagenClient881
+ImagenClient881[label="Imagen Color471"];
+ImagenClient882[label="Imagen Color472"];
+ImagenClient883[label="Imagen BW473"];
+ImagenClient884[label="Imagen Color474"];
+ImagenClient885[label="Imagen BW475"];
+ImagenClient881->ImagenClient882
+ImagenClient882->ImagenClient883
+ImagenClient883->ImagenClient884
+ImagenClient884->ImagenClient885
+ImagenClient885->NuLLClient88 
+ Cliente89->Cliente90
+Cliente90->Cliente89
+
+Cliente89->ImagenClient891
+ImagenClient891[label="Imagen BW501"];
+ImagenClient892[label="Imagen BW502"];
+ImagenClient893[label="Imagen BW503"];
+ImagenClient894[label="Imagen BW504"];
+ImagenClient891->ImagenClient892
+ImagenClient892->ImagenClient893
+ImagenClient893->ImagenClient894
+ImagenClient894->NuLLClient89 
+ Cliente90->Cliente91
+Cliente91->Cliente90
+
+Cliente90->ImagenClient901
+ImagenClient901[label="Imagen BW501"];
+ImagenClient902[label="Imagen BW502"];
+ImagenClient903[label="Imagen BW503"];
+ImagenClient904[label="Imagen BW504"];
+ImagenClient901->ImagenClient902
+ImagenClient902->ImagenClient903
+ImagenClient903->ImagenClient904
+ImagenClient904->NuLLClient90 
+ Cliente91->Cliente92
+Cliente92->Cliente91
+
+Cliente91->ImagenClient911
+ImagenClient911[label="Imagen Color19991"];
+ImagenClient912[label="Imagen BW19992"];
+ImagenClient913[label="Imagen Color19993"];
+ImagenClient914[label="Imagen BW19994"];
+ImagenClient911->ImagenClient912
+ImagenClient912->ImagenClient913
+ImagenClient913->ImagenClient914
+ImagenClient914->NuLLClient91 
+ Cliente92->Cliente93
+Cliente93->Cliente92
+
+Cliente92->ImagenClient921
+ImagenClient921[label="Imagen Color19991"];
+ImagenClient922[label="Imagen BW19992"];
+ImagenClient923[label="Imagen Color19993"];
+ImagenClient924[label="Imagen BW19994"];
+ImagenClient921->ImagenClient922
+ImagenClient922->ImagenClient923
+ImagenClient923->ImagenClient924
+ImagenClient924->NuLLClient92 
+ Cliente93->Cliente94
+Cliente94->Cliente93
+
+Cliente93->ImagenClient931
+ImagenClient931[label="Imagen Color20001"];
+ImagenClient932[label="Imagen Color20002"];
+ImagenClient933[label="Imagen Color20003"];
+ImagenClient934[label="Imagen BW20004"];
+ImagenClient931->ImagenClient932
+ImagenClient932->ImagenClient933
+ImagenClient933->ImagenClient934
+ImagenClient934->NuLLClient93 
+ Cliente94->Cliente95
+Cliente95->Cliente94
+
+Cliente94->ImagenClient941
+ImagenClient941[label="Imagen Color20001"];
+ImagenClient942[label="Imagen Color20002"];
+ImagenClient943[label="Imagen Color20003"];
+ImagenClient944[label="Imagen BW20004"];
+ImagenClient941->ImagenClient942
+ImagenClient942->ImagenClient943
+ImagenClient943->ImagenClient944
+ImagenClient944->NuLLClient94 
+ Cliente95->Cliente96
+Cliente96->Cliente95
+
+Cliente95->ImagenClient951
+ImagenClient951[label="Imagen Color481"];
+ImagenClient952[label="Imagen Color482"];
+ImagenClient953[label="Imagen BW483"];
+ImagenClient954[label="Imagen BW484"];
+ImagenClient955[label="Imagen Color485"];
+ImagenClient956[label="Imagen BW486"];
+ImagenClient957[label="Imagen Color487"];
+ImagenClient958[label="Imagen BW488"];
+ImagenClient951->ImagenClient952
+ImagenClient952->ImagenClient953
+ImagenClient953->ImagenClient954
+ImagenClient954->ImagenClient955
+ImagenClient955->ImagenClient956
+ImagenClient956->ImagenClient957
+ImagenClient957->ImagenClient958
+ImagenClient958->NuLLClient95 
+ Cliente96->Cliente97
+Cliente97->Cliente96
+
+Cliente96->ImagenClient961
+ImagenClient961[label="Imagen Color20021"];
+ImagenClient962[label="Imagen Color20022"];
+ImagenClient963[label="Imagen Color20023"];
+ImagenClient964[label="Imagen BW20024"];
+ImagenClient961->ImagenClient962
+ImagenClient962->ImagenClient963
+ImagenClient963->ImagenClient964
+ImagenClient964->NuLLClient96 
+ 
+Cliente97->ImagenClient971
+ImagenClient971[label="Imagen Color20021"];
+ImagenClient972[label="Imagen Color20022"];
+ImagenClient973[label="Imagen Color20023"];
+ImagenClient974[label="Imagen BW20024"];
+ImagenClient971->ImagenClient972
+ImagenClient972->ImagenClient973
+ImagenClient973->ImagenClient974
+ImagenClient974->NuLLClient97 
+ Cliente1 ->Cliente97
+Cliente97->Cliente1 
 }
