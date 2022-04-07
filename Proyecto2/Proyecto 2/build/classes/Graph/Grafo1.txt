@@ -1,0 +1,27 @@
+digraph G { 
+by [label="201900576" color=red];
+Nodo_g85[label="5"];
+Nodo_b210[label="10"];
+Nodo_h815[label="15"];
+Nodo_a120[label="20"];
+Nodo_d520[label="20"];
+Nodo_i825[label="25"];
+Nodo_d430[label="30"];
+Nodo_e650[label="50"];
+Nodo_c352[label="52"];
+Nodo_f760[label="60"];
+Nodo_a120->Nodo_b210;
+Nodo_b210->Nodo_g85;
+
+Nodo_b210->Nodo_h815;
+
+Nodo_a120->Nodo_c352;
+Nodo_c352->Nodo_d430;
+Nodo_d430->Nodo_d520;
+Nodo_d520->Nodo_i825;
+
+Nodo_d430->Nodo_e650;
+
+Nodo_c352->Nodo_f760;
+
+}

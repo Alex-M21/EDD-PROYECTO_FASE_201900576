@@ -1,0 +1,100 @@
+digraph G {
+node[shape=box];
+splines=false;
+Nodo_filacolumna[label = "",style = filled, fillcolor =white, group =0];
+Nodo_f9columna[label = "",style=filled, fillcolor =white, group =0];
+Nodo_f15columna[label = "",style=filled, fillcolor =white, group =0];
+Nodo_f16columna[label = "",style=filled, fillcolor =white, group =0];
+Nodo_f17columna[label = "",style=filled, fillcolor =white, group =0];
+Nodo_f22columna[label = "",style=filled, fillcolor =white, group =0];
+Nodo_f23columna[label = "",style=filled, fillcolor =white, group =0];
+Nodo_filac3[label = "",style=filled, fillcolor =white, group =4];
+Nodo_f15c3[label="",style=filled, fillcolor = "#8B8B8B", group =4];
+Nodo_f16c3[label="",style=filled, fillcolor = "#8B8B8B", group =4];
+Nodo_filac4[label = "",style=filled, fillcolor =white, group =5];
+Nodo_f9c4[label="",style=filled, fillcolor = "#8B8B8B", group =5];
+Nodo_f17c4[label="",style=filled, fillcolor = "#8B8B8B", group =5];
+Nodo_filac5[label = "",style=filled, fillcolor =white, group =6];
+Nodo_f22c5[label="",style=filled, fillcolor = "#8B8B8B", group =6];
+Nodo_filac6[label = "",style=filled, fillcolor =white, group =7];
+Nodo_f22c6[label="",style=filled, fillcolor = "#8B8B8B", group =7];
+Nodo_filac7[label = "",style=filled, fillcolor =white, group =8];
+Nodo_f16c7[label="",style=filled, fillcolor = "#8B8B8B", group =8];
+Nodo_filac8[label = "",style=filled, fillcolor =white, group =9];
+Nodo_f15c8[label="",style=filled, fillcolor = "#8B8B8B", group =9];
+Nodo_f22c8[label="",style=filled, fillcolor = "#8B8B8B", group =9];
+Nodo_f23c8[label="",style=filled, fillcolor = "#8B8B8B", group =9];
+Nodo_filac9[label = "",style=filled, fillcolor =white, group =10];
+Nodo_f22c9[label="",style=filled, fillcolor = "#8B8B8B", group =10];
+Nodo_filac10[label = "",style=filled, fillcolor =white, group =11];
+Nodo_f17c10[label="",style=filled, fillcolor = "#8B8B8B", group =11];
+Nodo_f22c10[label="",style=filled, fillcolor = "#8B8B8B", group =11];
+{rank=same;Nodo_filacolumna,Nodo_filac3,Nodo_filac3,Nodo_filac4,Nodo_filac4,Nodo_filac5,Nodo_filac5,Nodo_filac6,Nodo_filac6,Nodo_filac7,Nodo_filac7,Nodo_filac8,Nodo_filac8,Nodo_filac9,Nodo_filac9,Nodo_filac10}
+Nodo_filacolumna->Nodo_filac3;
+Nodo_filac3->Nodo_filac4;
+Nodo_filac4->Nodo_filac5;
+Nodo_filac5->Nodo_filac6;
+Nodo_filac6->Nodo_filac7;
+Nodo_filac7->Nodo_filac8;
+Nodo_filac8->Nodo_filac9;
+Nodo_filac9->Nodo_filac10;
+{rank=same;Nodo_f9columna,Nodo_f9c4}
+Nodo_f9columna->Nodo_f9c4;
+Nodo_f9c4 -> Nodo_f9columna;
+{rank=same;Nodo_f15columna,Nodo_f15c3,Nodo_f15c8}
+Nodo_f15columna->Nodo_f15c3;
+Nodo_f15c3 -> Nodo_f15columna;
+Nodo_f15c3->Nodo_f15c8;
+Nodo_f15c8 -> Nodo_f15c3;
+{rank=same;Nodo_f16columna,Nodo_f16c3,Nodo_f16c7}
+Nodo_f16columna->Nodo_f16c3;
+Nodo_f16c3 -> Nodo_f16columna;
+Nodo_f16c3->Nodo_f16c7;
+Nodo_f16c7 -> Nodo_f16c3;
+{rank=same;Nodo_f17columna,Nodo_f17c4,Nodo_f17c10}
+Nodo_f17columna->Nodo_f17c4;
+Nodo_f17c4 -> Nodo_f17columna;
+Nodo_f17c4->Nodo_f17c10;
+Nodo_f17c10 -> Nodo_f17c4;
+{rank=same;Nodo_f22columna,Nodo_f22c5,Nodo_f22c6,Nodo_f22c8,Nodo_f22c9,Nodo_f22c10}
+Nodo_f22columna->Nodo_f22c5;
+Nodo_f22c5 -> Nodo_f22columna;
+Nodo_f22c5->Nodo_f22c6;
+Nodo_f22c6 -> Nodo_f22c5;
+Nodo_f22c6->Nodo_f22c8;
+Nodo_f22c8 -> Nodo_f22c6;
+Nodo_f22c8->Nodo_f22c9;
+Nodo_f22c9 -> Nodo_f22c8;
+Nodo_f22c9->Nodo_f22c10;
+Nodo_f22c10 -> Nodo_f22c9;
+{rank=same;Nodo_f23columna,Nodo_f23c8}
+Nodo_f23columna->Nodo_f23c8;
+Nodo_f23c8 -> Nodo_f23columna;
+Nodo_filacolumna->Nodo_f9columna;
+Nodo_f9columna->Nodo_f15columna;
+Nodo_f15columna->Nodo_f16columna;
+Nodo_f16columna->Nodo_f17columna;
+Nodo_f17columna->Nodo_f22columna;
+Nodo_f22columna->Nodo_f23columna;
+Nodo_filac3->Nodo_f15c3;
+Nodo_f15c3->Nodo_filac3;
+Nodo_f15c3->Nodo_f16c3;
+Nodo_filac4->Nodo_f9c4;
+Nodo_f9c4->Nodo_filac4;
+Nodo_f9c4->Nodo_f17c4;
+Nodo_filac5->Nodo_f22c5;
+Nodo_f22c5->Nodo_filac5;
+Nodo_filac6->Nodo_f22c6;
+Nodo_f22c6->Nodo_filac6;
+Nodo_filac7->Nodo_f16c7;
+Nodo_f16c7->Nodo_filac7;
+Nodo_filac8->Nodo_f15c8;
+Nodo_f15c8->Nodo_filac8;
+Nodo_f15c8->Nodo_f22c8;
+Nodo_f22c8->Nodo_f23c8;
+Nodo_filac9->Nodo_f22c9;
+Nodo_f22c9->Nodo_filac9;
+Nodo_filac10->Nodo_f17c10;
+Nodo_f17c10->Nodo_filac10;
+Nodo_f17c10->Nodo_f22c10;
+}
