@@ -1,0 +1,32 @@
+digraph G { 
+by [label="201900576" color=red];
+Nodo_1[label="1"];
+Nodo_2[label="2"];
+Nodo_3[label="3"];
+Nodo_5[label="5"];
+Nodo_6[label="6"];
+Nodo_9[label="9"];
+Nodo_12[label="12"];
+Nodo_13[label="13"];
+Nodo_14[label="14"];
+Nodo_77[label="77"];
+Nodo_88[label="88"];
+Nodo_99[label="99"];
+Nodo_13->Nodo_5;
+Nodo_5->Nodo_2;
+Nodo_2->Nodo_1;
+
+Nodo_2->Nodo_3;
+
+Nodo_5->Nodo_9;
+Nodo_9->Nodo_6;
+
+Nodo_9->Nodo_12;
+
+Nodo_13->Nodo_88;
+Nodo_88->Nodo_14;
+Nodo_14->Nodo_77;
+
+Nodo_88->Nodo_99;
+
+}

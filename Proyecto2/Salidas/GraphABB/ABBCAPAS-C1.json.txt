@@ -1,0 +1,33 @@
+digraph G { 
+by [label="201900576" color=red];
+Nodo_Capa11[label="Capa 1"];
+Nodo_Capa22[label="Capa 2"];
+Nodo_Capa33[label="Capa 3"];
+Nodo_Capa44[label="Capa 4"];
+Nodo_Capa55[label="Capa 5"];
+Nodo_Capa66[label="Capa 6"];
+Nodo_Capa77[label="Capa 7"];
+Nodo_Capa88[label="Capa 8"];
+Nodo_Capa99[label="Capa 9"];
+Nodo_Capa1010[label="Capa 10"];
+Nodo_Capa1111[label="Capa 11"];
+Nodo_Capa1212[label="Capa 12"];
+Nodo_Capa1313[label="Capa 13"];
+Nodo_Capa99->Nodo_Capa88;
+Nodo_Capa88->Nodo_Capa33;
+Nodo_Capa33->Nodo_Capa11;
+Nodo_Capa11->Nodo_Capa22;
+
+Nodo_Capa33->Nodo_Capa44;
+Nodo_Capa44->Nodo_Capa66;
+Nodo_Capa66->Nodo_Capa55;
+
+Nodo_Capa66->Nodo_Capa77;
+
+Nodo_Capa99->Nodo_Capa1212;
+Nodo_Capa1212->Nodo_Capa1010;
+Nodo_Capa1010->Nodo_Capa1111;
+
+Nodo_Capa1212->Nodo_Capa1313;
+
+}
