@@ -10,11 +10,12 @@ package proyecto_3;
  */
 public class Proyecto_3 {
 
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String[] args) {
-        // TODO code application logic here
+        frmLogin login  = new frmLogin();
+        login.setTitle("Login");
+        
+        login.show();
     }
     
 }
