@@ -131,6 +131,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        Carga_Masiva carga = new Carga_Masiva();
         JFileChooser fc = new JFileChooser();
         FileNameExtensionFilter filtro = new FileNameExtensionFilter(".JSON", "json");
         fc.setFileFilter(filtro);
@@ -145,6 +146,7 @@ public class frmPrincipal extends javax.swing.JFrame {
                     valor = fr.read();
                 }
                 //String ret = lectura.LeerClientesPantalla(cadena);
+                carga.Carga_Lugares(cadena);
                 this.lblruta.setText("Ruta: "+archivo.toString());
             } catch (IOException e) {
                 e.printStackTrace();
@@ -153,6 +155,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        Carga_Masiva carga = new Carga_Masiva();
         JFileChooser fc = new JFileChooser();
         FileNameExtensionFilter filtro = new FileNameExtensionFilter(".JSON", "json");
         fc.setFileFilter(filtro);
@@ -167,6 +170,7 @@ public class frmPrincipal extends javax.swing.JFrame {
                     valor = fr.read();
                 }
                 //String ret = lectura.LeerClientesPantalla(cadena);
+                carga.Carga_Rutas(cadena);
                 this.lblruta.setText("Ruta: "+archivo.toString());
             } catch (IOException e) {
                 e.printStackTrace();

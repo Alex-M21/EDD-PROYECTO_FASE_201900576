@@ -7,6 +7,7 @@ package proyecto_3;
 import java.io.IOException;
 import javax.swing.JOptionPane;
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 /**
  *
@@ -19,21 +20,21 @@ public class Carga_Masiva {
     }
     public void Cargar_Mensajeros(String data) {
         String regreso = "";
-            JSONArray user = new JSONArray(data);
-            for (int i = 0; i < user.length(); i++) {
-            String post_id = user.getJSONObject(i).getString("dpi");
+            JSONArray mensajero = new JSONArray(data);
+            for (int i = 0; i < mensajero.length(); i++) {
+            String post_id = mensajero.getJSONObject(i).getString("dpi");
             int convDPI = convertidor(post_id);
             
             System.out.println(post_id);
-            String post_nombre = user.getJSONObject(i).getString("nombre");
+            String post_nombre = mensajero.getJSONObject(i).getString("nombre");
             System.out.println(post_nombre);
-            String post_apellido = user.getJSONObject(i).getString("apellidos");
+            String post_apellido = mensajero.getJSONObject(i).getString("apellidos");
             System.out.println(post_apellido);
-            String post_tipo = user.getJSONObject(i).getString("tipo_licencia");
+            String post_tipo = mensajero.getJSONObject(i).getString("tipo_licencia");
             System.out.println(post_tipo);
-            String post_genero = user.getJSONObject(i).getString("genero");
+            String post_genero = mensajero.getJSONObject(i).getString("genero");
             System.out.println(post_genero);
-            String post_direccion = user.getJSONObject(i).getString("direccion");
+            String post_direccion = mensajero.getJSONObject(i).getString("direccion");
             System.out.println(post_direccion);
             //regreso += "dpi: "+post_id+"nombre_cliente: "+post_nombre+"password: "+post_apellido+"\n";
             }
@@ -42,12 +43,33 @@ public class Carga_Masiva {
     }
 
     public void Carga_Lugares(String data) {
-
-        System.out.println("hola hola");
+        JSONObject carga = new JSONObject(data);
+  
+         JSONArray arr = carga.getJSONArray("Lugares");
+        for (int i = 0; i < arr.length(); i++) {
+            int post_id = arr.getJSONObject(i).getInt("id");
+            System.out.println(post_id);
+            String post_departamento = arr.getJSONObject(i).getString("departamento");
+            System.out.println(post_departamento);
+            String post_nombre = arr.getJSONObject(i).getString("nombre");
+            System.out.println(post_nombre);
+            String post_sn = arr.getJSONObject(i).getString("sn_sucursal");
+            System.out.println(post_sn);
+        }
     }
 
     public void Carga_Rutas(String data) {
+        JSONObject carga = new JSONObject(data);
 
-        System.out.println("hola hola");
+        JSONArray arr = carga.getJSONArray("Grafo");
+        for (int i = 0; i < arr.length(); i++) {
+            int post_inicio = arr.getJSONObject(i).getInt("inicio");
+            System.out.println(post_inicio);
+            int post_final = arr.getJSONObject(i).getInt("final");
+            System.out.println(post_final);
+            int post_peso = arr.getJSONObject(i).getInt("peso");
+            System.out.println(post_peso);
+
+        }
     }
 }
