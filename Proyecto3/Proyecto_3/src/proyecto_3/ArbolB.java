@@ -87,6 +87,7 @@ public class ArbolB {
                 } else {
                     temp.derecha = aux.derecha;
                 }
+                
                 //si la rama posee ramas deja de ser hoja
                 if (temp.derecha != null && temp.izquierda != null) {
                     rizquierda.hoja = false;

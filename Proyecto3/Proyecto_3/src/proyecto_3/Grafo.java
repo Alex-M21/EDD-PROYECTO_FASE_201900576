@@ -1,0 +1,20 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package proyecto_3;
+
+/**
+ *
+ * @author braya
+ */
+public class Grafo {
+    int numeroVertice;
+    static int maximoVertices = 20;
+    Vertice tablaAdc;
+    
+    public Grafo(int mx){
+    //tablaAdc = new Vertice()
+    
+    }
+}
