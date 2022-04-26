@@ -12,12 +12,12 @@ import java.io.FileWriter;
  *
  * @author braya
  */
-public class Lista_Simple {
-    Nodo_Lista_Simple cabeza;
-
+public class Lista_Vertices {
+    Nodo_Vertice cabeza;
+    
     int size;
 
-    public Lista_Simple() {
+    public Lista_Vertices() {
         cabeza = null;
         
         size = 0;
@@ -27,14 +27,14 @@ public class Lista_Simple {
         return (cabeza == null) ? true : false;
     }
 
-    public void AgregarNodoInicio(Object algo) {
+    public void AgregarNodoInicio(int algo) {
         // Cuando la lista esta vacia
         if (cabeza == null) {
-            cabeza = new Nodo_Lista_Simple(algo);
+            cabeza = new Nodo_Vertice(algo);
             // cuando la lista esta llena
         } else {
-            Nodo_Lista_Simple temp = cabeza;
-            Nodo_Lista_Simple nuevo = new Nodo_Lista_Simple(algo);
+            Nodo_Vertice temp = cabeza;
+            Nodo_Vertice nuevo = new Nodo_Vertice(algo);
             nuevo.linkSiguiente(temp);
             cabeza = nuevo;
         }
@@ -44,22 +44,24 @@ public class Lista_Simple {
     
     
     
-    public String imprimir(){
-    Nodo_Lista_Simple temp = cabeza;
-    String data = "";
-    if(cabeza != null){
+    public void imprimir(){
+    Nodo_Vertice temp = cabeza;
     
+    if(cabeza != null){
+    String data = "";
     while (temp.getSiguiente() != null){
-    data =data+"-->"+temp.getDato(); 
+    data =data+"->"+temp.getDato(); 
+    data += "|"+temp.lstSimple.imprimir()+"|";
     temp = temp.getSiguiente();
     }
-    data =data+"-->"+temp.getDato();
+    data =data+"->"+temp.getDato();
+    data += "|"+temp.lstSimple.imprimir()+"|";
     System.out.println(data);
+    
     }else{
-    data += "La lista Simple esta vacia";
+    System.out.println("La lista vertices esta vacia");
     
     }
-    return data;
     
     }
     
@@ -70,16 +72,70 @@ public class Lista_Simple {
 
     public Object ObtenerNodo(int index) {
         int contador = 0;
-        Nodo_Lista_Simple temporal = cabeza;
+        Nodo_Vertice temporal = cabeza;
         while (contador != index) {
             temporal = temporal.getSiguiente();
             contador++;
         }
         return temporal.getDato();
     }
+    
+    public void Insertar_Vert_Arista(int inicio, int fin){
+  
+      // Cuando la lista esta vacia
+        if (cabeza == null) {
+            cabeza = new Nodo_Vertice(inicio);
+            cabeza.lstSimple.AgregarNodoInicio(fin);
+            
+            // cuando la lista esta llena
+        } else if (cabeza != null) {
+            Nodo_Vertice temp = cabeza;
+            Nodo_Vertice aux = cabeza;
+            int encontrado = -1;
+            int contador_aux = 0;
+            int contador_oficial = 0;
+            // este while mapea
+            while (aux.getSiguiente() != null) {
+              if (aux.getDato() == inicio){
+              encontrado = inicio;
+              }
+              contador_aux++;
+              aux = aux.getSiguiente();
+            }
+            if (aux.getDato() == inicio){
+              encontrado = inicio;
+              }
+            
+            System.out.println("El valor encontrado es de: "+encontrado);
+            
+            if (encontrado == -1){
+                Nodo_Vertice nuevo = new Nodo_Vertice(inicio);
+                
+                while(temp.getSiguiente() != null){
+                temp = temp.getSiguiente();
+                }
+                nuevo.lstSimple.AgregarNodoInicio(fin);
+                temp.linkSiguiente(nuevo);
+                nuevo.linkSiguiente(null);
+                
+            
+            }else{
+            while(contador_oficial != contador_aux){
+            contador_oficial++;
+            temp = temp.getSiguiente();
+            }
+            temp.lstSimple.AgregarNodoInicio(fin);
+            
+            }
+           
+            
+        }
+    }
+  
+    
     public Object ObtenerPrimero(){
-    Nodo_Lista_Simple temporal = cabeza;
-    Nodo_Lista_Simple temporal2 = cabeza;
+    Nodo_Vertice temporal = cabeza;
+    Nodo_Vertice temporal2 = cabeza;
     Object retorno = null;
     if (temporal != null){
      if(temporal.getSiguiente() != null){
@@ -95,12 +151,18 @@ public class Lista_Simple {
     contador2++;
     }
     temporal2.linkSiguiente(null);
+    
+    
+    
     }else if(temporal.getSiguiente()==null ){
     retorno = temporal.getDato();
     cabeza = null;
+    
+    
     }else{
     retorno = null;
     }
+    
     }  
    size--;
    return retorno;
@@ -112,7 +174,7 @@ public class Lista_Simple {
             cabeza = cabeza.getSiguiente();
         } else if (index == size - 1) {
             int cont = 0;
-            Nodo_Lista_Simple actual = cabeza;
+            Nodo_Vertice actual = cabeza;
             while (cont != index - 2) {
                 actual = actual.getSiguiente();
                 cont++;
@@ -120,7 +182,7 @@ public class Lista_Simple {
             actual.linkSiguiente(null);
         } else {
             int cont = 0;
-            Nodo_Lista_Simple temporal = cabeza;
+            Nodo_Vertice temporal = cabeza;
             while (cont != index) {
                 temporal = temporal.getSiguiente();
                 cont++;
@@ -133,7 +195,7 @@ public class Lista_Simple {
 
     public void Cortar(int index) {
         int contador = 0;
-        Nodo_Lista_Simple temp = cabeza;
+        Nodo_Vertice temp = cabeza;
         while (contador != index) {
             temp = temp.getSiguiente();
             contador++;
@@ -147,43 +209,52 @@ public class Lista_Simple {
         size--;
     }
     
-    public String GraficarNodos(String conexion,int vertice){
-    Nodo_Lista_Simple actual = cabeza;
-    Nodo_Lista_Simple actual2 = cabeza;
-    Nodo_Lista_Simple head = cabeza;
-    String Data = "";
+    public String GraficarNodos(){
+    Nodo_Vertice actual = cabeza;
+    Nodo_Vertice actual2 = cabeza;
+    Nodo_Vertice head = cabeza;
+    String Data = "digraph G {\n";
     int contador = 1;
     if (actual == null){
     
-    Data =Data+"\n";
+    Data =Data+" Lista_Vacia }";
     }else{
+        
         while (actual.getSiguiente() != null){
         
-        Data = Data + "Arista"+contador+"_"+vertice+"[label=\""+"A"+actual.getDato()+"\"];\n";
+        Data = Data + "Vertice"+contador+"[label=\""+"V"+actual.getDato()+"\"];\n";
+        Data = Data + actual.lstSimple.GraficarNodos("Vertice"+contador,actual.getDato());
         actual = actual.getSiguiente();
         contador++;
     }
-    Data = Data + "Arista"+contador+"_"+vertice+"[label=\""+"A"+actual.getDato()+"\"];\n";
-    Data = Data + "\n";
+    Data = Data + "Vertice"+contador+"[label=\""+"V"+actual.getDato()+"\"];\n";
+    Data = Data + " rankdir=LR;\n";
     
     cabeza = head;
     contador = 1;
-    
-       Data = Data + conexion + "->"+"Arista"+contador+"_"+vertice+"\n";
     while (actual2.getSiguiente() != null){
         
-        Data = Data + "Arista"+contador+"_"+vertice+"->Arista"+(contador+1)+"_"+vertice+"\n";
+        Data = Data + "Vertice"+contador+"->Vertice"+(contador+1)+"\n";
         actual2 = actual2.getSiguiente();
         contador++;
     }
     
+    Data = Data + "\n }";
+    
+    
+    
     }
-    return Data; 
+    
+    
+    
+    return Data;
+    
+    
     }
     
     public void CrearTxt(String Data,String fNombre){
     try {   //C:\Users\braya\OneDrive\Documentos\NetBeansProjects\Proyecto1_EDD\src\Code\\+fNombre+".txt";
-            String ruta = "C:\\Users\\braya\\OneDrive\\Documentos\\NetBeansProjects\\Proyecto1_EDD\\src\\Code\\"+fNombre+".txt";
+            String ruta = "C:\\Users\\braya\\OneDrive\\Escritorio\\Salida\\"+fNombre+".txt";
             String contenido = Data;
             File file = new File(ruta);
             // Si el archivo no existe es creado
@@ -199,13 +270,13 @@ public class Lista_Simple {
         }
     
     }
-    public void LLamarGraphviz(String nombre){
+    public void LLamarGraphviz(String nombreE,String nombreS){
     try {
       
       String GraficarRuta = "C:\\Program Files\\Graphviz\\bin\\dot.exe";
       
-      String RutaEntrada = "C:\\Users\\braya\\OneDrive\\Documentos\\NetBeansProjects\\Proyecto1_EDD\\src\\Code\\Lista Recepcion.txt";
-      String RutaSalida = "C:\\Users\\braya\\OneDrive\\Documentos\\NetBeansProjects\\Proyecto1_EDD\\src\\Graficas\\"+nombre+".jpg";
+      String RutaEntrada = "C:\\Users\\braya\\OneDrive\\Escritorio\\Salida\\"+nombreE+".txt";
+      String RutaSalida = "C:\\Users\\braya\\OneDrive\\Escritorio\\Salida\\"+nombreS+".jpg";
       
       String tParametro = "-Tjpg";
       String tOParam = "-o";
@@ -227,4 +298,5 @@ public class Lista_Simple {
     }
     
     }
+    
 }

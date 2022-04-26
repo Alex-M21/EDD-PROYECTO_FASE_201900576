@@ -36,8 +36,28 @@ public class Proyecto_3 {
        
         arbol.InOrder(arbol.raiz);
        
+        // lista de adyacencia
+        
+        Lista_Vertices lstVert = new Lista_Vertices();
+   
+        lstVert.Insertar_Vert_Arista(2,2);
+        lstVert.Insertar_Vert_Arista(3,3);
+        lstVert.Insertar_Vert_Arista(4,3);
+        lstVert.Insertar_Vert_Arista(5,5);
+        lstVert.Insertar_Vert_Arista(5,3);
+        lstVert.Insertar_Vert_Arista(5,2);
+       
         
         
+        
+        
+        lstVert.imprimir();
+        System.out.println(lstVert.GraficarNodos());
+        String resultado = lstVert.GraficarNodos();
+        
+        lstVert.CrearTxt(resultado,"hola");
+        lstVert.LLamarGraphviz("hola","hola");
+        //System.out.println("Este es el nodo"+lstVert.ObtenerNodo(2));
         
         
     }
