@@ -4,11 +4,20 @@
  */
 package proyecto_3;
 
+import java.awt.Image;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
+import static proyecto_3.frmAdmin.crear;
+import static proyecto_3.frmAdmin.modelo1;
+import static proyecto_3.frmAdmin.root1;
+
 
 /**
  *
@@ -16,11 +25,32 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  */
 public class frmPrincipal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form frmPrincipal
-     */
+    public static DefaultMutableTreeNode root2;
+    public static DefaultTreeModel modelo2;
+    
+    Lista_Lugares place = new Lista_Lugares();
+    
     public frmPrincipal() {
         initComponents();
+    }
+    
+    public static void crear(DefaultMutableTreeNode nodo,File carpeta){
+    File[] archivos = carpeta.listFiles();
+    if(archivos != null){
+        int contador = 0;
+        for(File f:archivos){
+            DefaultMutableTreeNode hijo = new DefaultMutableTreeNode(f.getAbsolutePath());
+            modelo2.insertNodeInto(hijo, nodo, contador);
+            contador++;
+            if(f.isDirectory()){
+               crear(hijo,f);
+                }
+        
+        }
+        
+    }else{
+                System.out.println("No tiene hijos");
+                }
     }
 
     /**
@@ -34,6 +64,16 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         lblruta = new javax.swing.JLabel();
+        lblImagen = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTree1 = new javax.swing.JTree();
+        txtRutaSeleccion = new javax.swing.JTextField();
+        btnActualizar = new javax.swing.JButton();
+        btnMostrar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        lblImagen2 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         Cargas_Masivas = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -47,7 +87,36 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblruta.setText("Ruta: ");
+        lblruta.setText("Ruta de carga masiva: ");
+
+        lblImagen.setText("IMAGEN");
+
+        jTree1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTree1MouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTree1);
+
+        btnActualizar.setText("Actualizar");
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
+
+        btnMostrar.setText("Mostrar Imagen");
+        btnMostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostrarActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Grafo no dirigido");
+
+        lblImagen2.setText("Grafo");
+
+        jLabel2.setText("Operaciones ");
 
         Cargas_Masivas.setText("Cargas Masivas");
 
@@ -91,16 +160,69 @@ public class frmPrincipal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(lblruta)
-                .addContainerGap(898, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(lblruta))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnMostrar)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txtRutaSeleccion)
+                                            .addComponent(btnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(27, 27, 27)
+                                                .addComponent(lblImagen2, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(35, 35, 35)
+                                                .addComponent(jLabel3))))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(183, 183, 183)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel1))))))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblruta)
-                .addContainerGap(478, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel1)
+                                        .addGap(10, 10, 10)
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGap(44, 44, 44)
+                                        .addComponent(lblImagen2, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(30, 30, 30)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtRutaSeleccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel2))
+                                .addGap(18, 18, 18)
+                                .addComponent(btnActualizar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(32, 32, 32)))
+                        .addComponent(btnMostrar)
+                        .addGap(0, 62, Short.MAX_VALUE))
+                    .addComponent(lblImagen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -145,8 +267,8 @@ public class frmPrincipal extends javax.swing.JFrame {
                     cadena = cadena + (char) valor;
                     valor = fr.read();
                 }
-                //String ret = lectura.LeerClientesPantalla(cadena);
-                carga.Carga_Lugares(cadena);
+               
+                carga.Carga_Lugares(cadena,place);
                 this.lblruta.setText("Ruta: "+archivo.toString());
             } catch (IOException e) {
                 e.printStackTrace();
@@ -177,6 +299,41 @@ public class frmPrincipal extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+        File directorio = new File("C:\\Users\\braya\\OneDrive\\Escritorio\\Salidas");
+    if(!directorio.exists()){
+    directorio.mkdir();
+    }
+    File directorio2 = new File("C:\\Users\\braya\\OneDrive\\Escritorio\\Salidas\\Principal");
+    if(!directorio2.exists()){
+    directorio2.mkdir();
+    }
+   
+   
+      
+      File directorio1 = new File("C:/Users/braya/OneDrive/Escritorio/Salidas/Principal");
+      //Creamos el nodo raíz y el DefaultTreeModel
+      root2 = new DefaultMutableTreeNode(directorio1.getName());
+      modelo2 = new DefaultTreeModel(root2);
+      crear(root2,directorio1);
+      jTree1.setModel(modelo2);
+    }//GEN-LAST:event_btnActualizarActionPerformed
+
+    private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
+        ImageIcon imagen;
+        Icon icono;
+        String ruta = this.txtRutaSeleccion.getText();
+        
+        imagen = new ImageIcon(ruta);
+        icono = new  ImageIcon(imagen.getImage().getScaledInstance(lblImagen.getWidth(),lblImagen.getHeight(),Image.SCALE_DEFAULT)); 
+        this.lblImagen.setIcon(icono);
+    }//GEN-LAST:event_btnMostrarActionPerformed
+
+    private void jTree1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTree1MouseClicked
+        DefaultMutableTreeNode NodoSeleccionado = (DefaultMutableTreeNode) jTree1.getSelectionPath().getLastPathComponent();
+        this.txtRutaSeleccion.setText(NodoSeleccionado.getUserObject().toString());
+    }//GEN-LAST:event_jTree1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -215,13 +372,23 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu Cargas_Masivas;
+    private javax.swing.JButton btnActualizar;
+    private javax.swing.JButton btnMostrar;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTree jTree1;
+    private javax.swing.JLabel lblImagen;
+    private javax.swing.JLabel lblImagen2;
     private javax.swing.JLabel lblruta;
+    private javax.swing.JTextField txtRutaSeleccion;
     // End of variables declaration//GEN-END:variables
 }

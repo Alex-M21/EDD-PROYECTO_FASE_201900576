@@ -17,6 +17,12 @@ public class Proyecto_3 {
         
         //login.show();
         
+        //frmAdmin admin = new frmAdmin();
+        // admin.show();
+        
+        frmPrincipal principal = new frmPrincipal();
+        principal.show();
+        
         ArbolB arbol = new ArbolB();
         arbol.insertar(25);
         arbol.insertar(19);

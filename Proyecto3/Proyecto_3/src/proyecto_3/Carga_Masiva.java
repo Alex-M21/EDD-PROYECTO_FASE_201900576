@@ -42,7 +42,7 @@ public class Carga_Masiva {
         System.out.println(regreso);
     }
 
-    public void Carga_Lugares(String data) {
+    public void Carga_Lugares(String data,Lista_Lugares almacen) {
         JSONObject carga = new JSONObject(data);
   
          JSONArray arr = carga.getJSONArray("Lugares");
@@ -55,7 +55,10 @@ public class Carga_Masiva {
             System.out.println(post_nombre);
             String post_sn = arr.getJSONObject(i).getString("sn_sucursal");
             System.out.println(post_sn);
+            almacen.AgregarNodoInicio(new Lugares(post_id,post_departamento,post_nombre,post_sn));
+            
         }
+        almacen.imprimir();
     }
 
     public void Carga_Rutas(String data) {
