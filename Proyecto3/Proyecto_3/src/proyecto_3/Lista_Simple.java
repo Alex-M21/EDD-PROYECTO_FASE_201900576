@@ -182,8 +182,8 @@ public class Lista_Simple {
     }
     
     public void CrearTxt(String Data,String fNombre){
-    try {   //C:\Users\braya\OneDrive\Documentos\NetBeansProjects\Proyecto1_EDD\src\Code\\+fNombre+".txt";
-            String ruta = "C:\\Users\\braya\\OneDrive\\Documentos\\NetBeansProjects\\Proyecto1_EDD\\src\\Code\\"+fNombre+".txt";
+    try {   //C:\Users\braya\OneDrive\Escritorio\Salidas\Principal
+            String ruta = "C:\\Users\\braya\\OneDrive\\Escritorio\\Salidas\\Principal\\"+fNombre+".txt";
             String contenido = Data;
             File file = new File(ruta);
             // Si el archivo no existe es creado
@@ -199,13 +199,13 @@ public class Lista_Simple {
         }
     
     }
-    public void LLamarGraphviz(String nombre){
+    public void LLamarGraphviz(String nombreE,String nombreS){
     try {
       
       String GraficarRuta = "C:\\Program Files\\Graphviz\\bin\\dot.exe";
       
-      String RutaEntrada = "C:\\Users\\braya\\OneDrive\\Documentos\\NetBeansProjects\\Proyecto1_EDD\\src\\Code\\Lista Recepcion.txt";
-      String RutaSalida = "C:\\Users\\braya\\OneDrive\\Documentos\\NetBeansProjects\\Proyecto1_EDD\\src\\Graficas\\"+nombre+".jpg";
+      String RutaEntrada = "C:\\Users\\braya\\OneDrive\\Escritorio\\Salidas\\Principal\\"+nombreE+".tx";
+      String RutaSalida = "C:\\Users\\braya\\OneDrive\\Escritorio\\Salidas\\Principal\\"+nombreS+".jpg";
       
       String tParametro = "-Tjpg";
       String tOParam = "-o";

@@ -219,7 +219,7 @@ public class Lista_Vertices {
     
     Data =Data+" Lista_Vacia }";
     }else{
-        
+        Data = Data + " rankdir=LR;\n";
         while (actual.getSiguiente() != null){
         
         Data = Data + "Vertice"+contador+"[label=\""+"V"+actual.getDato()+"\"];\n";
@@ -228,7 +228,8 @@ public class Lista_Vertices {
         contador++;
     }
     Data = Data + "Vertice"+contador+"[label=\""+"V"+actual.getDato()+"\"];\n";
-    Data = Data + " rankdir=LR;\n";
+    Data = Data + actual.lstSimple.GraficarNodos("Vertice"+contador,actual.getDato());
+    
     
     cabeza = head;
     contador = 1;
@@ -254,7 +255,7 @@ public class Lista_Vertices {
     
     public void CrearTxt(String Data,String fNombre){
     try {   //C:\Users\braya\OneDrive\Documentos\NetBeansProjects\Proyecto1_EDD\src\Code\\+fNombre+".txt";
-            String ruta = "C:\\Users\\braya\\OneDrive\\Escritorio\\Salida\\"+fNombre+".txt";
+            String ruta = "C:\\Users\\braya\\OneDrive\\Escritorio\\Salidas\\Principal\\"+fNombre+".txt";
             String contenido = Data;
             File file = new File(ruta);
             // Si el archivo no existe es creado
@@ -275,8 +276,8 @@ public class Lista_Vertices {
       
       String GraficarRuta = "C:\\Program Files\\Graphviz\\bin\\dot.exe";
       
-      String RutaEntrada = "C:\\Users\\braya\\OneDrive\\Escritorio\\Salida\\"+nombreE+".txt";
-      String RutaSalida = "C:\\Users\\braya\\OneDrive\\Escritorio\\Salida\\"+nombreS+".jpg";
+      String RutaEntrada = "C:\\Users\\braya\\OneDrive\\Escritorio\\Salidas\\Principal\\"+nombreE+".txt";
+      String RutaSalida = "C:\\Users\\braya\\OneDrive\\Escritorio\\Salidas\\Principal\\"+nombreS+".jpg";
       
       String tParametro = "-Tjpg";
       String tOParam = "-o";

@@ -58,7 +58,7 @@ public class Carga_Masiva {
             almacen.AgregarNodoInicio(new Lugares(post_id,post_departamento,post_nombre,post_sn));
             
         }
-        almacen.imprimir();
+        
     }
 
     public void Carga_Rutas(String data) {
