@@ -61,7 +61,7 @@ public class Carga_Masiva {
         
     }
 
-    public void Carga_Rutas(String data) {
+    public void Carga_Rutas(String data,Lista_Rutas rutas) {
         JSONObject carga = new JSONObject(data);
 
         JSONArray arr = carga.getJSONArray("Grafo");
@@ -72,6 +72,11 @@ public class Carga_Masiva {
             System.out.println(post_final);
             int post_peso = arr.getJSONObject(i).getInt("peso");
             System.out.println(post_peso);
+            
+            Rutas ruta = new Rutas(post_inicio,post_final,post_peso);
+            
+            rutas.AgregarNodoInicio(ruta);
+            rutas.imprimir();
 
         }
     }

@@ -14,9 +14,7 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
-import static proyecto_3.frmAdmin.crear;
-import static proyecto_3.frmAdmin.modelo1;
-import static proyecto_3.frmAdmin.root1;
+
 
 
 /**
@@ -29,6 +27,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     public static DefaultTreeModel modelo2;
     
     Lista_Lugares place = new Lista_Lugares();
+    Lista_Rutas route = new Lista_Rutas();
     
     public frmPrincipal() {
         initComponents();
@@ -257,6 +256,7 @@ public class frmPrincipal extends javax.swing.JFrame {
                 }
                 //String ret = lectura.LeerClientesPantalla(cadena);
                 carga.Cargar_Mensajeros(cadena);
+                
                 this.lblruta.setText("Ruta: "+archivo.toString());
             } catch (IOException e) {
                 e.printStackTrace();
@@ -308,8 +308,20 @@ public class frmPrincipal extends javax.swing.JFrame {
                     valor = fr.read();
                 }
                 //String ret = lectura.LeerClientesPantalla(cadena);
-                carga.Carga_Rutas(cadena);
-                this.lblruta.setText("Ruta: "+archivo.toString());
+                carga.Carga_Rutas(cadena,route);
+                String vuelta = route.GraficarNodos();
+                route.CrearTxt(vuelta,"Lista_Rutas");
+                route.LLamarGraphviz("Lista_Rutas","Lista_Rutas");
+                
+                ImageIcon imagen;
+                Icon icono;
+                String ruta = "C:\\Users\\braya\\OneDrive\\Escritorio\\Salidas\\Principal\\Lista_Rutas.jpg";
+        
+                imagen = new ImageIcon(ruta);
+                icono = new  ImageIcon(imagen.getImage().getScaledInstance(lblImagen2.getWidth(),lblImagen2.getHeight(),Image.SCALE_DEFAULT)); 
+                this.lblImagen2.setIcon(icono);
+                
+                //this.lblImagen2.setText("Ruta: "+archivo.toString());
             } catch (IOException e) {
                 e.printStackTrace();
             }
