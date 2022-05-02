@@ -204,7 +204,7 @@ public class Lista_Simple {
       
       String GraficarRuta = "C:\\Program Files\\Graphviz\\bin\\dot.exe";
       
-      String RutaEntrada = "C:\\Users\\braya\\OneDrive\\Escritorio\\Salidas\\Principal\\"+nombreE+".tx";
+      String RutaEntrada = "C:\\Users\\braya\\OneDrive\\Escritorio\\Salidas\\Principal\\"+nombreE+".txt";
       String RutaSalida = "C:\\Users\\braya\\OneDrive\\Escritorio\\Salidas\\Principal\\"+nombreS+".jpg";
       
       String tParametro = "-Tjpg";
