@@ -27,15 +27,22 @@ public class Proyecto_3 {
         
    
    
-        lstVert.Insertar_Vert_Arista(20,2);
-        lstVert.Insertar_Vert_Arista(23,1);
-        lstVert.Insertar_Vert_Arista(27,3);
-       
-        lstVert.Insertar_Vert_Arista(34,3);
-        lstVert.Insertar_Vert_Arista(34,3);
-        lstVert.Insertar_Vert_Arista(34,5);
-        lstVert.Insertar_Vert_Arista(52,3);
-        lstVert.Insertar_Vert_Arista(59,2);
+        lstVert.Insertar_Vert_Arista(1,2);
+        lstVert.Insertar_Vert_Arista(1,4);
+        
+        lstVert.Insertar_Vert_Arista(2,1);
+        lstVert.Insertar_Vert_Arista(2,3);
+        lstVert.Insertar_Vert_Arista(2,5);
+        
+        lstVert.Insertar_Vert_Arista(3,2);
+        lstVert.Insertar_Vert_Arista(3,4);
+        
+        lstVert.Insertar_Vert_Arista(4,1);
+        lstVert.Insertar_Vert_Arista(4,3);
+        lstVert.Insertar_Vert_Arista(4,5);
+        
+        lstVert.Insertar_Vert_Arista(5,2);
+        lstVert.Insertar_Vert_Arista(5,4);
        
         
         
@@ -47,12 +54,14 @@ public class Proyecto_3 {
         
         lstVert.CrearTxt(resultado,"hola");
         lstVert.LLamarGraphviz("hola","hola");
-        //System.out.println("Este es el nodo"+lstVert.ObtenerNodo(2));
+        
+        lstVert.Buscar(1,3);
         
         
         
-      frmPrincipal principal = new frmPrincipal();
-      principal.show();
+        
+      //frmPrincipal principal = new frmPrincipal();
+      //principal.show();
         
     }
     

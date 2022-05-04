@@ -80,6 +80,18 @@ public class Lista_Vertices {
         return temporal.getDato();
     }
     
+    public Object Obtener(int buscar){
+        Nodo_Vertice nodo = cabeza;
+        Nodo_Vertice aux = cabeza;
+        while(nodo.getSiguiente()!= null){
+            if(nodo.getDato() == buscar ){
+            aux = nodo;
+            }
+            nodo = nodo.getSiguiente();
+        }
+        return aux;
+    }
+    
     public void Insertar_Vert_Arista(int inicio, int fin){
   
       // Cuando la lista esta vacia
@@ -299,5 +311,54 @@ public class Lista_Vertices {
     }
     
     }
+    
+    // Buscar ruta mas corta
+    
+    public void Buscar(int inicio, int fin) {
+        Nodo_Vertice start = (Nodo_Vertice) Obtener(inicio);
+        int posibles = start.lstSimple.size;
+        System.out.println("Este es el tamaño de la lista nodo: " + posibles);
+        int ArrayAux[][] = new int[10][10];
+        boolean terminado = false;
+        for (int j = 0; j < posibles; j++) {
+            ArrayAux[j][0] = 1;
+            ArrayAux[j][1] = (int) start.lstSimple.ObtenerNodo(j);
+        }
+        int comenzarBusqueda = 1;
+        while (terminado != true) {
+            for (int x = 0; x < posibles; x++) {
+                if (ArrayAux[x][comenzarBusqueda] == fin) {
+                    terminado = true;
+                } else {
+                    System.out.println("no esta en la segunda columna");
+                    int nodoBuscar = ArrayAux[x][comenzarBusqueda];
+                    Nodo_Vertice second = (Nodo_Vertice) Obtener(nodoBuscar);
+                    int nuevot = second.lstSimple.size;
+                    int ArraySecondAux[] = new int[10];
+                    for (int i = 0; i < nuevot; i++){
+                        if((int)second.lstSimple.ObtenerNodo(i) != inicio){
+                          ArraySecondAux[i]=(int)second.lstSimple.ObtenerNodo(i);
+                        }
+                    terminado = true;
+                    }
+
+                }
+            }
+
+        }
+    
+    
+    
+    for(int h = 0; h<10; h++){
+        for(int k = 0;k<10;k++){
+        System.out.print("| "+ArrayAux[h][k]+" |");
+        }
+        System.out.println();
+    }
+    
+           
+    }
+    
+    
     
 }
