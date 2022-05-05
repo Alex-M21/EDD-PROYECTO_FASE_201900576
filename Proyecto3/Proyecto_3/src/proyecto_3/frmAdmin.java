@@ -6,8 +6,10 @@ package proyecto_3;
 
 import java.awt.Image;
 import java.io.File;
+import java.io.IOException;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 
@@ -327,6 +329,7 @@ public class frmAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jTree1MouseClicked
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
+        try{
         String Obtenerdpi = this.txtDPI.getText();
         String ObtenerNombre = this.txtNombreCompleto.getText();
         String ObtenerUser = this.txtNombreUser.getText();
@@ -340,7 +343,18 @@ public class frmAdmin extends javax.swing.JFrame {
         int telefono = Integer.parseInt(ObtenerTelefono);
         int id_muni = Integer.parseInt(ObtenerMuni);
         Cliente client = new Cliente(dpi,ObtenerNombre,ObtenerUser,ObtenerCorreo,ObtenerContra,telefono,ObtenerDireccion,id_muni);
-        
+        JOptionPane.showConfirmDialog(null,"Cliente Ingresado Correctamente");
+        }catch(Exception e){
+                JOptionPane.showConfirmDialog(null,"Error:   "+e);
+                this.txtDPI.setText("");
+                this.txtNombreCompleto.setText("");
+                this.txtNombreUser.setText("");
+                this.txtContraseña.setText("");
+                this.txtCorreo.setText("");
+                this.txtTelefono.setText("");
+                this.txtDireccion.setText("");
+                this.txtMunicipio.setText("");
+                }
         
         
         

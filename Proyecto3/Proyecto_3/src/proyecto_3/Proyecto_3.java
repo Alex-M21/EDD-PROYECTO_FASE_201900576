@@ -14,11 +14,10 @@ public class Proyecto_3 {
     public static void main(String[] args) {
         //frmLogin login  = new frmLogin();
         //login.setTitle("Login");
-        
         //login.show();
         
-        //frmAdmin admin = new frmAdmin();
-        // admin.show();
+        frmAdmin admin = new frmAdmin();
+        admin.show();
         
      
         // lista de adyacencia
@@ -60,8 +59,8 @@ public class Proyecto_3 {
         
         
         
-      //frmPrincipal principal = new frmPrincipal();
-      //principal.show();
+      frmPrincipal principal = new frmPrincipal();
+      principal.show();
         
     }
     
