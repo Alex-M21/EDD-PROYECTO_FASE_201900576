@@ -8,6 +8,8 @@ import java.io.IOException;
 import javax.swing.JOptionPane;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import static proyecto_3.frmLogin.lstVert;
+import static proyecto_3.frmLogin.tabla;
 
 /**
  *
@@ -18,15 +20,17 @@ public class Carga_Masiva {
         int salida = Integer.parseInt(entrada);
         return salida;
     }
+    
+    
     public void Cargar_Mensajeros(String data) {
         String regreso = "";
             JSONArray mensajero = new JSONArray(data);
             for (int i = 0; i < mensajero.length(); i++) {
             String post_id = mensajero.getJSONObject(i).getString("dpi");
-            int convDPI = convertidor(post_id);
+            
             
             System.out.println(post_id);
-            String post_nombre = mensajero.getJSONObject(i).getString("nombre");
+            String post_nombre = mensajero.getJSONObject(i).getString("nombres");
             System.out.println(post_nombre);
             String post_apellido = mensajero.getJSONObject(i).getString("apellidos");
             System.out.println(post_apellido);
@@ -36,10 +40,22 @@ public class Carga_Masiva {
             System.out.println(post_genero);
             String post_direccion = mensajero.getJSONObject(i).getString("direccion");
             System.out.println(post_direccion);
-            //regreso += "dpi: "+post_id+"nombre_cliente: "+post_nombre+"password: "+post_apellido+"\n";
+            String post_telefono = mensajero.getJSONObject(i).getString("telefono");
+            System.out.println(post_telefono);
+       
+           
+            
+            Mensajero msj = new Mensajero(post_id, post_nombre, post_apellido, post_tipo, post_genero,post_telefono,post_direccion);
+            tabla.insertar(msj);
+            
+            
             }
         
-        System.out.println(regreso);
+        
+        
+       String d = tabla.GenerarGrafo();
+       tabla.CrearTxt(d,"tabla_hash");
+       tabla.LLamarGraphviz("tabla_hash","tabla_hash");
     }
 
     public void Carga_Lugares(String data,Lista_Lugares almacen) {
@@ -75,9 +91,22 @@ public class Carga_Masiva {
             
             Rutas ruta = new Rutas(post_inicio,post_final,post_peso);
             
+            
             rutas.AgregarNodoInicio(ruta);
             rutas.imprimir();
+            
+            lstVert.Insertar_Vert_Arista(post_inicio,post_final);
+            
+            
+        
+            
 
         }
+        String resultado = lstVert.GraficarNodos();
+        
+            lstVert.CrearTxt(resultado,"Adyacencia");
+            lstVert.LLamarGraphviz("Adyacencia","Adyacencia");
+        
+        
     }
 }

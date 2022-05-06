@@ -9,16 +9,16 @@ package proyecto_3;
  * @author braya
  */
 public class Cliente {
-    int DPI;
+    String DPI;
     String Nombre_completo;
     String Nombre_usuario;
     String Correo;
     String Contraseña;
-    int Telefono;
+    String Telefono;
     String Direccion;
     int Id_Municipio;
 
-    public Cliente(int DPI, String Nombre_completo, String Nombre_usuario, String Correo, String Contraseña, int Telefono, String Direccion, int Id_Municipio) {
+    public Cliente(String DPI, String Nombre_completo, String Nombre_usuario, String Correo, String Contraseña, String Telefono, String Direccion, int Id_Municipio) {
         this.DPI = DPI;
         this.Nombre_completo = Nombre_completo;
         this.Nombre_usuario = Nombre_usuario;

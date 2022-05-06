@@ -108,9 +108,10 @@ public class TablaHash {
     }
     }
     
-    public void insertar(String k) {
+    public void insertar(Object k) {
         if (valLLenado() == false) {
-            int getHash = hash(k);
+            String dpi = ((Mensajero)k).DPI;
+            int getHash = hash(dpi);
             System.out.println("este es el key BI: "+ getHash);
             int contador = 0;
             while (contador != getHash) {
@@ -126,7 +127,7 @@ public class TablaHash {
                     
                     while(validado != true){
                         
-                        int getrehash = rehash(k,contador);
+                        int getrehash = rehash(dpi,contador);
                         
                         if (arrayHash[getrehash] == null) {
                             arrayHash[getrehash] = k;
@@ -173,7 +174,7 @@ public class TablaHash {
             if (arrayHash[z] == null) {
                 data += "<tr><td bgcolor=\"yellow\">Index "+(z+1)+"</td><td bgcolor=\"yellow\">Vacio</td></tr>\n";
             } else {
-                data += "<tr><td bgcolor=\"lightblue\"><font color=\"#0000ff\">Index "+(z+1)+"</font></td><td bgcolor=\"lightblue\">"+arrayHash[z]+"</td> </tr>\n";
+                data += "<tr><td bgcolor=\"lightblue\"><font color=\"#0000ff\">Index "+(z+1)+"</font></td><td bgcolor=\"lightblue\"> DPI: "+((Mensajero)arrayHash[z]).DPI+", Nombre: "+((Mensajero)arrayHash[z]).Nombres+"</td> </tr>\n";
             }
     }
         data+=" </table>>\n" +

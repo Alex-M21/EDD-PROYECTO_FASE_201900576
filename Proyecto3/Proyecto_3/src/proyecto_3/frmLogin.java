@@ -5,6 +5,9 @@
 package proyecto_3;
 
 import javax.swing.JOptionPane;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
+
 
 /**
  *
@@ -12,9 +15,17 @@ import javax.swing.JOptionPane;
  */
 public class frmLogin extends javax.swing.JFrame {
 
-    /**
-     * Creates new form frmLogin
-     */
+   
+    public static Lista_Lugares place = new Lista_Lugares();
+    public static Lista_Rutas route = new Lista_Rutas();
+    public static Carga_Masiva carga = new Carga_Masiva();
+    public static ListaClientes Cli = new ListaClientes();
+    public static TablaHash tabla = new TablaHash(37);
+    public static Lista_Vertices lstVert = new Lista_Vertices();
+    public static Merkle merk = new Merkle();
+    
+    
+    
     public frmLogin() {
         initComponents();
     }
@@ -113,25 +124,39 @@ public class frmLogin extends javax.swing.JFrame {
 
     private void btnLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogActionPerformed
         String name = this.txtNombre.getText();
-    
         String pass = this.txtPass.getText();
+        System.out.println("Validado: "+Cli.ValidarEntrada(name, pass));
+        Cli.imprimir();
         
         if (name.equals("admin") && pass.equals("EDD2022")) {
            JOptionPane.showMessageDialog(null,"Bienvenido admin");
-            this.dispose();
+           frmAdmin admin = new frmAdmin();
+           admin.show();
+            //this.dispose();
             
                 
             }
         else if(name.equals("alex")&& pass.equals("1234")){
            
             JOptionPane.showMessageDialog(null,"Bienvenido Alex");
-             this.dispose();
+            frmPrincipal principal = new frmPrincipal();
+            principal.setTitle("Pricipal");
+            principal.show();
+             //this.dispose();
             
             
+        }else if(Cli.ValidarEntrada(name, pass) == true){
+            JOptionPane.showMessageDialog(null,"Bienvenido Cliente:"+name);
+            frmPrincipal principal = new frmPrincipal();
+            principal.setTitle("Pricipal");
+            principal.show();
+             
+        
         }else{
         JOptionPane.showMessageDialog(null,"Ingrese un usuario valido");
-        frmPrincipal principal = new frmPrincipal();
-        principal.setVisible(true);
+        //frmPrincipal principal = new frmPrincipal();
+        //principal.setVisible(true);
+        
         }
        
         
